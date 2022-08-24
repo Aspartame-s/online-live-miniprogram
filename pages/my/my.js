@@ -97,20 +97,23 @@ Page({
         })
         console.log('用户是否登录', app.globalData.isLogin);
         // 存入sessionId jwt
-        const sessionId = wx.getStorageSync('sessionId')
-        const jwt = wx.getStorageSync('jwt')
+        const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+        const jwt = encodeURIComponent(wx.getStorageSync('jwt'))
         const encryptedData = encodeURIComponent(res.encryptedData)
+        const iv = encodeURIComponent(res.iv)
         // 存储到loaclstorage
         wx.setStorageSync('signature', res.signature)
         wx.setStorageSync('rawData', res.rawData)
-        const signature = wx.getStorageSync('signature');
-        const rawData = wx.getStorageSync('rawData')
-        userInfo(`wx/user/info?sessionId=${sessionId}&signature=${signature}&rawData=${rawData}&encryptedData=${encryptedData}&iv=${res.iv}&jwt=${jwt}`).then(rr => {
+        const signature = encodeURIComponent(wx.getStorageSync('signature'));
+        const rawData = encodeURIComponent(wx.getStorageSync('rawData'))
+        userInfo(`wx/user/info?sessionId=${sessionId}&signature=${signature}&rawData=${rawData}&encryptedData=${encryptedData}&iv=${iv}&jwt=${jwt}`).then(rr => {
           console.log(rr)
           this.setData({
             avatarUrl: rr.data.avatarUrl,
             nickName: rr.data.nickName
           })
+          wx.setStorageSync('avatarUrl', rr.data.avatarUrl)
+          wx.setStorageSync('nickName', rr.data.nickName)
         })
       },
       fail: (rr) => {

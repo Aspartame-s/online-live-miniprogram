@@ -20,29 +20,29 @@ Component({
           id: 1,
         pagePath: "/pages/index/index",
         text: "首页",
-        iconPath: 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/shouyeweixuanzhong.png',
-        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/shouyexuanzhong.png"
+        iconPath: 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/shouyeweixuanzhong.png',
+        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/shouyexuanzhong.png"
       },
       {
         id: 2,
         pagePath: "/pages/course/course",
         text: "课程",
-        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/kechengweixuanzhong.png",
-        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/kechengxuanzhong.png"
+        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/kechengweixuanzhong.png",
+        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/kechengxuanzhong.png"
       },
       {
           id: 3,
         pagePath: "/pages/plaza/plaza",
         text: "广场",
-        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/guangchangweixuanzhong.png",
-        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/guangchangxuanzhong.png"
+        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/guangchangweixuanzhong.png",
+        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/guangchangxuanzhong.png"
       },
       {
           id: 4,
         pagePath: "/pages/my/my",
         text: "我的",
-        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/wodeweixuanzhong.png",
-        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/icon/wodexuanzhong.png"
+        iconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/wodeweixuanzhong.png",
+        selectedIconPath: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/icon/wodexuanzhong.png"
       }
     ]
   },
