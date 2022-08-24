@@ -90,12 +90,12 @@ Component({
     },
     // 视频退出全屏
     screenchange(e) {
-      let videoplay = wx.createVideoContext('videoContent', this)
+      let videoplay = wx.createVideoContext('myVideo', this)
       if (e.detail.fullScreen) {
         videoplay.play()
       } else {
         videoplay.pause()
       }
-    }
+    },
   }
 })

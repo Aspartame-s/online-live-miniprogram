@@ -24,21 +24,27 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 198rpx;
+  top: 168rpx;
   left: 28rpx;
   z-index: 11;
+  overflow: hidden;
 }
 .viedoImg {
   width: 694rpx;
   height: 369rpx;
+  border-radius: 16rpx;
 }
-
+.high{
+  position: absolute;
+  z-index: 2;
+}
 .bofang {
   width: 108rpx;
   height: 108rpx;
   position: absolute;
   top: 148rpx;
   left: 294rpx;
+  z-index: 3;
 }
 
 /* 课程介绍 */
@@ -49,10 +55,11 @@
   color: #1E1E20;
   vertical-align: top;
   margin: 40rpx 12rpx 16rpx 12rpx;
+  font-weight:  bold;
 }
 
 .content {
-  margin: 40rpx 12rpx 16rpx 12rpx;
+  margin: 12rpx 22rpx 35rpx 22rpx;
   display: flex;
   justify-content: center;
   font-size: 14px;
@@ -101,13 +108,14 @@
 .introduceText {
   font-size: 16px;
   font-family: PingFang SC-Medium, PingFang SC;
-  font-weight: 500;
+  font-weight: 400;
   z-index: 99;
 }
 
 /* 选中样式 */
 .active {
   color: #EB9A15;
+  font-weight: bold;
 }
 .huxianChoose{
   visibility:visible;
@@ -125,6 +133,7 @@
   display: inline-block;
   margin-right: 16rpx;
   margin-bottom: 16rpx;
+  overflow: hidden;
 }
 /* 老师介绍 */
 .teacherUrl{

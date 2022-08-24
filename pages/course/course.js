@@ -22,7 +22,7 @@ Page({
     iscourseNull: false,
     // 没有更多了
     isMore: true,
-    catageClassImg: ['https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/img/shufa.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/img/meishu.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/img/yinyue.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/img/wudao.png'],
+    catageClassImg: ['https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/shufa.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/meishu.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/yinyue.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/wudao.png'],
     catage: [],
     // 当前课程的分类id
     catageId: '',

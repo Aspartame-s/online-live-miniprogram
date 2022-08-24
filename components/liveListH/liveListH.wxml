@@ -1,6 +1,6 @@
 <view class="liveContainerMany" wx:if="{{!isloading}}">
   <view class="coverImg liveContainerManyContainer">
-    <image src="{{imgUrl}}" class="coverImg"></image>
+    <image src="{{imgUrl}}" class="coverImg high"></image>
     <video src="{{videoUrl}}" class="coverImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
     <image src='{{imgbaseUrl}}/course/bofang.png' wx:if="{{isVideo}}" class="bofangImg" bindtap="bofang"></image>
   </view>
