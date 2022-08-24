@@ -27,12 +27,12 @@
 .content {
   width: 694rpx;
   height: 352rpx;
-  margin-top: 64rpx;
+  margin-top: 40rpx;
 }
 
 .content .swiper {
   width: 100%;
-  height: 352rpx;
+  height: 382rpx;
   /* background-color: #eee; */
   position: relative;
   overflow: hidden;
@@ -52,7 +52,7 @@
 
 .bannerImg {
   width: 100%;
-  height: 320rpx;
+  height: 360rpx;
 }
 
 /* 全部课程 */

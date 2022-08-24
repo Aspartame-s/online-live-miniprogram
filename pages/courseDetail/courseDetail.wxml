@@ -1,8 +1,9 @@
 <view class="detailContainer">
   <image src="{{courseCoverUrl}}" class="backgroundImg"></image>
-  <image src='{{imgbaseUrl}}/course/fanhui.png' class="backImg" bindtap="backTo"></image>
+  <!-- <image src='{{imgbaseUrl}}/course/fanhui.png' class="backImg" bindtap="backTo"></image> -->
   <!-- 视频 -->
   <view class="viedo">
+  <image src="{{courseCoverUrl}}" class="viedoImg high"></image>
     <video src="{{videoUrl}}" class="viedoImg" poster="{{courseCoverUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
     <!-- <image src="{{courseCoverUrl}}" class="viedoImg"> -->
       <image src='{{imgbaseUrl}}/course/bofang.png' class="bofang" bindtap="bofang"></image>

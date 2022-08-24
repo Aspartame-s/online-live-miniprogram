@@ -34,7 +34,7 @@
       <image src='{{imgbaseUrl}}/icon/huxian.png' class="bottomHu huifangHu {{isShow?'active':''}}"></image>
       <view class="more" bindtap="getMoreClick" wx:if="{{isShow}}">
         <text>查看更多</text>
-        <van-icon name="arrow" />
+        <van-icon name="arrow" class="jiantou" />
       </view>
     </view>
     <!-- 正在直播列表 -->

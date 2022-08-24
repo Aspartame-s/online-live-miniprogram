@@ -20,8 +20,13 @@
   width: 50rpx;
   height: 50rpx;
   position: absolute;
+  z-index: 10;
 }
-
+/* 设置图片 */
+.topHigh{
+  z-index: 9;
+  position: absolute;
+}
 .coverOneImg {
   width: 320rpx;
   height: 208rpx;

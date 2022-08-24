@@ -7,23 +7,34 @@
   box-shadow: 0px 8rpx 8rpx 2rpx rgba(0, 0, 0, 0.07);
   border-radius: 16rpx 16rpx 16rpx 16rpx;
   opacity: 1;
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .coverImg {
   width: 334rpx;
   height: 208rpx;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  
 }
 /* 视频or图片 */
 .liveContainerManyContainer{
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border-radius: 16rpx 16rpx 0 0; */
+}
+.high{
+  z-index: 9;
+  border-radius: 16rpx 16rpx 0 0;
 }
 .bofangImg{
   width: 40rpx;
   height: 40rpx;
   position: absolute;
+  z-index: 10;
 }
 
 /* 课程描述 */
@@ -36,6 +47,7 @@
   padding-top: 16rpx;
   padding-bottom: 16rpx;
   box-sizing: border-box;
+  margin-top: 208rpx;
 }
 
 .lessondecText {

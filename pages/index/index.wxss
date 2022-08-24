@@ -77,26 +77,16 @@
 .bannerImg {
   width: 694rpx;
   /* height: 232rpx; */
-  height: 100%;
-
+  height: 90%;
   margin-top: 16rpx;
   margin-left: 28rpx;
-  border-radius: 16rpx 16rpx 16rpx 16rpx;
+  border-radius: 16rpx;
   box-sizing: border-box;
-}
-.test {
-  width: 694rpx;
-  height: 100%;
-  margin-top: 16rpx;
-  margin-left: 28rpx;
-  background-color: blue;
-  border-radius: 20rpx;
-  /* border: 1rpx solid red; */
 }
 
 .swiperitem {
   width: 694rpx;
-  height: 332rpx;
+  height: 256rpx;
   /* margin-top: 16rpx; */
   /* margin-left: 28rpx; */
   /* border-radius: 16rpx; */
@@ -105,7 +95,7 @@
 .swiper{
   /* width: 694rpx; */
   overflow: hidden;
-  height: 332rpx;
+  height: 256rpx;
   /* border-radius: 16rpx 16rpx; */
 }
 
@@ -155,7 +145,10 @@
   right: 20rpx;
   font-size: 12px;
 }
-
+.jiantou{
+  display: inline-block;
+  margin-left: 18rpx;
+}
 /* 下方弧线 */
 .bottomHu {
   width: 72rpx;

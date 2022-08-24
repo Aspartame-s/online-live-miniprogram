@@ -1,7 +1,7 @@
 <!--components/liveListW/liveListW.wxml-->
 <view class="liveContainerOne">
   <view class="coverOneContainer">
-    <image src="{{imgUrl}}" class="coverOneImg {{history}}" wx:if="{{!isVideo}}"></image>
+    <image src="{{imgUrl}}" class="coverOneImg {{history}} topHigh"></image>
     <video src="{{videoUrl}}" class="coverOneImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
     <image src='{{imgbaseUrl}}/course/bofang.png' wx:if="{{isVideo}}" class="bofangImg" bindtap="bofang"></image>
     <!-- 是回放的头部不显示正在直播 默认false -->
@@ -20,7 +20,7 @@
       <text class="teacherName">{{teacherName}}</text>
       <!-- <text class="startTime">已开播{{lessonElapsedTime}}分钟</text> -->
     </view>
-    <view wx:if="{{isHuifang}}" class="huifang">
+    <view wx:if="{{isHuifang}}" class="huifang" bindtap="bofang">
       <text class="">查看回放</text>
     </view>
   </view>

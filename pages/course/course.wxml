@@ -5,12 +5,13 @@
     <span class="hotTeacher">热门老师</span>
   </view>
     <view class="content">
-      <swiper class="swiper" indicator-dots autoplay indicator-color="#D8D8D8" indicator-active-color="#EB9A15">
+      <swiper class="swiper" indicator-dots="{{true}}" autoplay indicator-color="#D8D8D8" indicator-active-color="#EB9A15">
         <swiper-item wx:for="{{bannerList}}" wx:key="id">
           <image src="{{item.mediaUrl}}" class="bannerImg"></image>
         </swiper-item>
       </swiper>
     </view>
+    <!-- <image style="width: 694rpx;height: 320rpx;" src="https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/banner/t-banner-2.jpg"></image> -->
     <!-- 全部课程 -->
     <view class="allCourse">
       <view class="courseHeaderPiont"></view>
