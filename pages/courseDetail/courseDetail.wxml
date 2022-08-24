@@ -1,0 +1,62 @@
+<view class="detailContainer">
+  <image src="{{courseCoverUrl}}" class="backgroundImg"></image>
+  <image src='{{imgbaseUrl}}/course/fanhui.png' class="backImg" bindtap="backTo"></image>
+  <!-- 视频 -->
+  <view class="viedo">
+    <video src="{{videoUrl}}" class="viedoImg" poster="{{courseCoverUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
+    <!-- <image src="{{courseCoverUrl}}" class="viedoImg"> -->
+      <image src='{{imgbaseUrl}}/course/bofang.png' class="bofang" bindtap="bofang"></image>
+    <!-- </image> -->
+  </view>
+  <!-- 课程介绍 -->
+  <view class="mainContent">
+    <view class="courseContent">
+      <view class="title">
+        {{title}}
+      </view>
+      <view class="content">
+        {{courseDec}}
+      </view>
+    </view>
+    <!-- 课程列表头部 -->
+    <view class="couseHeader">
+      <view class="introduce">
+        <view class="introduceText" bindtap="changeTab" class="{{isCourse?'active':''}}">
+          <text>课时介绍</text>
+        </view>
+        <image wx:if="{{isCourse}}" src='{{imgbaseUrl}}/icon/huxian.png' class="huxian {{isCourse?'huxianChoose':''}}"></image>
+      </view>
+      <view class="introduce teacher">
+        <view class="introduceText" bindtap="changeTab" class="{{!isCourse?'active':''}}">
+          <text>老师介绍</text>
+        </view>
+        <image wx:if="{{!isCourse}}" src='{{imgbaseUrl}}/icon/huxian.png' class="huxian {{!isCourse?'huxianChoose':''}}"></image>
+      </view>
+    </view>
+    <!-- 课程列表 -->
+    <view class="courseList">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!hasPhone}}"  class="getPhoneBtn"></button>
+        <block wx:if="{{!isNull && isCourse}}">
+         <view wx:for="{{courseList}}" wx:key="{{item.id}}" class="list">
+          <liveListH bindtap="addHistory" data-courseid="{{item.courseId}}" data-lessonid="{{item.id}}"
+          isVideo="{{true}}"
+          liveList="{{courseList}}" 
+          imgUrl="{{item.courseCoverUrl}}"
+          lessonName="{{item.lessonName}}"
+          shortDec="{{item.lessonShortDesc}}"
+          isShowTeacher="false"
+          lessonViewCount="{{item.lessonViewCount}}"
+          videoUrl="{{item.lessonContentUrl}}"
+          subFlag="{{item.subFlag}}"
+          ></liveListH>
+         </view>
+        </block>
+        <block wx:if="{{!isNull && !isCourse}}">
+          <image src="{{techerIntroUrl}}" class="teacherUrl"></image>
+        </block>
+        <view wx:if="{{isNull}}">
+          <Empty id="empty"></Empty>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<view class="viedoContainer">
+  <video src="{{videoUrl}}" autoplay="false" id="videoContent"></video>
+  <!-- <video id="liveVideo" playsinline="" webkit-playsinline="" x5-video-player-type="h5-page" x5-video-player-fullscreen="true" controlslist="nodownload" class="notmouse" data-v-6aad951a="" src="blob:https://live.glzhxx.com/aa85483d-c2f4-4e00-82f9-3860785bd5e1"></video> -->
+</view>

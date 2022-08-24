@@ -1,0 +1,25 @@
+<view class="liveContainerMany" wx:if="{{!isloading}}">
+  <view class="coverImg liveContainerManyContainer">
+    <image src="{{imgUrl}}" class="coverImg"></image>
+    <video src="{{videoUrl}}" class="coverImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
+    <image src='{{imgbaseUrl}}/course/bofang.png' wx:if="{{isVideo}}" class="bofangImg" bindtap="bofang"></image>
+  </view>
+  <!-- <video src="{{videoUrl}}" wx:if="{{isVideo}}" ></video> -->
+  <view class="lessondec">
+    <view class="lessonName">{{lessonName}}</view>
+    <view class="lessondecText">{{shortDec}}</view>
+    <view class="teacherDec">
+      <block wx:if="{{isShowTeacher}}">
+        <image src="{{teacherImg}}" class="teacherImg"></image>
+        <text style="color:#666; font-size: 12px;">{{teacherName}}</text>
+      </block>
+      <view class="viewNum">
+        <van-icon name="eye-o" id="eye" />
+        <text class="viewNumText">{{lessonViewCount}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{isloading}}">
+  <Loading></Loading>
+</view>

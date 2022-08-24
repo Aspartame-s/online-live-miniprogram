@@ -1,0 +1,134 @@
+.detailContainer {
+  position: relative;
+  font-family: PingFang SC-Medium, PingFang SC;
+}
+
+.backgroundImg {
+  width: 100vw;
+  height: 578rpx;
+  filter: blur(8px);
+  z-index: 9;
+  position: relative;
+}
+
+.backImg {
+  width: 68rpx;
+  height: 68rpx;
+  position: absolute;
+  top: 40rpx;
+  left: 28rpx;
+  z-index: 99;
+}
+/* 视频 */
+.viedo {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 198rpx;
+  left: 28rpx;
+  z-index: 11;
+}
+.viedoImg {
+  width: 694rpx;
+  height: 369rpx;
+}
+
+.bofang {
+  width: 108rpx;
+  height: 108rpx;
+  position: absolute;
+  top: 148rpx;
+  left: 294rpx;
+}
+
+/* 课程介绍 */
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  color: #1E1E20;
+  vertical-align: top;
+  margin: 40rpx 12rpx 16rpx 12rpx;
+}
+
+.content {
+  margin: 40rpx 12rpx 16rpx 12rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+}
+.courseContent{
+  margin-top: 140rpx;
+}
+/* 课程介绍--老师信息 */
+.mainContent {
+  width: 100vw;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 48rpx 48rpx 0px 0px;
+  position: relative;
+  top: -140rpx;
+  border: 1px solid #fff;
+  z-index: 10;
+}
+.couseHeader{
+  /* margin-bottom: 3rpx; */
+  height: 100rpx;
+}
+.introduce {
+  display: inline-block;
+  margin-left: 28rpx;
+  width: 128rpx;
+  height: 44rpx;
+  text-align: center;
+  position:absolute;
+  top: 342;
+  width: auto;
+  height: 44rpx;
+}
+.teacher{
+  left: 206rpx;
+  margin-left: 0rpx;
+}
+.huxian {
+  width: 37rpx;
+  height: 7rpx;
+  visibility: hidden;
+}
+
+.introduceText {
+  font-size: 16px;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  z-index: 99;
+}
+
+/* 选中样式 */
+.active {
+  color: #EB9A15;
+}
+.huxianChoose{
+  visibility:visible;
+}
+#empty{
+  margin-left: 50rpx;
+}
+/* 课程列表 */
+.courseList{
+  position: relative;
+  padding-left: 28rpx;
+  box-sizing: border-box;
+}
+.list{
+  display: inline-block;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+/* 老师介绍 */
+.teacherUrl{
+  width: 694rpx;
+  height: 852rpx;
+}
+/* btn */

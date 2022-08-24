@@ -1,0 +1,98 @@
+.liveContainerMany {
+  display: inline-block;
+  width: 334rpx;
+  height: 428rpx;
+  margin-right: 10rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 8rpx 2rpx rgba(0, 0, 0, 0.07);
+  border-radius: 16rpx 16rpx 16rpx 16rpx;
+  opacity: 1;
+  overflow: auto;
+}
+
+.coverImg {
+  width: 334rpx;
+  height: 208rpx;
+}
+/* 视频or图片 */
+.liveContainerManyContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bofangImg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+}
+
+/* 课程描述 */
+.lessondec {
+  /* border: 1px solid #000; */
+  /* height: 220rpx; */
+  width: 308rpx;
+  margin-right: 14rpx;
+  margin-left: 12rpx;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+  box-sizing: border-box;
+}
+
+.lessondecText {
+  width: 308rpx;
+  height: 78rpx;
+  color: #666666;
+  line-height: 39rpx;
+  /* 两行且超出部分省略号 */
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.lessonName {
+  width: 280rpx;
+  height: 40rpx;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.teacherImg {
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.teacherDec {
+  position: relative;
+  margin-top: 16rpx;
+}
+
+/* 观看数量 */
+.viewNum {
+  display: inline-block;
+  position: absolute;
+  right: 44rpx;
+  top: 10rpx;
+  /* margin-left: 88rpx; */
+  font-size: 12px;
+  color: #666666;
+}
+
+.viewNumText {
+  display: inline-block;
+  margin-left: 5rpx;
+}
+
+#eye {
+  font-size: 13px;
+}

@@ -1,0 +1,9 @@
+<!--components/empty/empty.wxml-->
+<view class="emptyContainer">
+ <view class="empty">
+  <image src='{{imgbaseUrl}}/img/wuneirong.png' class="empty"></image>
+ </view>
+  <view class="decEmptyText">
+    <text>{{describeText}}</text>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--components/calendarWeek/calendarWeek.wxml-->
+<view class="date-choose shrink border-bottom10 date-position">
+  <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}" class="calendar-container" enhanced="{{flag}}"	bindscroll="scrollStart"  binddragend="scrollEnd"  >
+    <view class="calendar-item-box {{item.showDate == currentDay ? 'active-item' : ''}} {{activeIsShow && item.showDate == currentDay ? 'fadeout' : 'fadein'}}" wx:for="{{calendarList}}" wx:key="index" >
+      <view bindtap="click" data-date="{{item.date}}" data-curdate="{{item.showDate}}" class="calendar-item {{item.showDate == currentDay ? 'active-calendar-item' : ''}}"  id="the-id">
+        <span class="week-item">{{item.showWeek}}</span>
+        <span class="date-item">{{item.showDate}}</span>
+        <view class="active-point" wx:if="{{item.showDate == currentDay}}"></view>
+      </view>
+    </view>
+
+  </scroll-view>
+  <!-- <view class="weekday">
+    <block wx:for-item="weekday" wx:for="{{dateListArray}}" wx:key="index"> 
+      <text class="week">{{weekday}}</text>
+    </block>
+  </view>
+  <swiper class="date-choose-swiper" circular="true" indicator-dots="{{false}}" current="{{swiperCurrent}}"
+    bindchange="dateSwiperChange">
+    <block wx:for="{{dateList}}" wx:for-item="date" wx:key="date.id">
+      <swiper-item class="swiper-item"> 
+        <view class="dateday">
+          <block wx:for="{{date.days}}" wx:for-item="day" wx:key="day.id">
+            <view class="day" id="{{day.id}}" bindtap="chooseDate">
+              <text class="{{dateCurrentStr==day.id?'active':''}}{{today==day.id?' reds':''}}">{{day.day}}</text>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper> -->
+  <view class="date-current">{{cur}}</view>
+</view>

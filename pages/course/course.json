@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "courseListH":"/components/liveListH/liveListH",
+    "Empty":"/components/empty/empty"
+  }
+}

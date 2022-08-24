@@ -1,0 +1,12 @@
+.emptyCourse {
+  line-height: 300rpx;
+  display: flex;
+  justify-content: center;
+  margin-right: 110rpx;
+}
+.todayLivelist{
+  display: inline-block;
+}
+.scroll-view_H {
+  white-space: nowrap;
+}

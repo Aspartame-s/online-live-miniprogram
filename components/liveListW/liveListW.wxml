@@ -1,0 +1,27 @@
+<!--components/liveListW/liveListW.wxml-->
+<view class="liveContainerOne">
+  <view class="coverOneContainer">
+    <image src="{{imgUrl}}" class="coverOneImg {{history}}" wx:if="{{!isVideo}}"></image>
+    <video src="{{videoUrl}}" class="coverOneImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
+    <image src='{{imgbaseUrl}}/course/bofang.png' wx:if="{{isVideo}}" class="bofangImg" bindtap="bofang"></image>
+    <!-- 是回放的头部不显示正在直播 默认false -->
+    <block wx:if="{{!isHuifangHead}}">
+      <view class="zhibo">
+        <image src='{{imgbaseUrl}}/icon/lujin.png' class="zhiboIcon"></image>
+       <text>{{!isTime?'正在直播':''}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="rightDesc">
+    <text class="livingName over">{{lessonName}}</text>
+    <text class="shortDesc">{{shortDec}}</text>
+    <view class="teacherDesc" wx:if="{{isShowTeacher}}">
+      <image src="{{teacherImg}}" class="teacherImg"></image>
+      <text class="teacherName">{{teacherName}}</text>
+      <!-- <text class="startTime">已开播{{lessonElapsedTime}}分钟</text> -->
+    </view>
+    <view wx:if="{{isHuifang}}" class="huifang">
+      <text class="">查看回放</text>
+    </view>
+  </view>
+</view>

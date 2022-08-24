@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "calendarMonth":"../../components/date/calendarWeek",
+    "courseLive":"../../components/live/courseLive",
+    "liveListW":"/components/liveListW/liveListW",
+    "Empty":"/components/empty/empty",
+    "Loading":"/components/Loading/Loading"
+  }
+}

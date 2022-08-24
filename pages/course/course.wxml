@@ -1,0 +1,45 @@
+<view class="courseContainer all">
+  <view class="courseHeader">
+  <view class="title-container">
+    <view class="courseHeaderPiont"></view>
+    <span class="hotTeacher">热门老师</span>
+  </view>
+    <view class="content">
+      <swiper class="swiper" indicator-dots autoplay indicator-color="#D8D8D8" indicator-active-color="#EB9A15">
+        <swiper-item wx:for="{{bannerList}}" wx:key="id">
+          <image src="{{item.mediaUrl}}" class="bannerImg"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 全部课程 -->
+    <view class="allCourse">
+      <view class="courseHeaderPiont"></view>
+      <text class="hotTeacher allCourseText">全部课程</text>
+    </view>
+    <view class="split"></view>
+    <view class="courseList">
+      <view class="courseClassfiy" wx:for="{{catage}}" wx:key="{{item.id}}" bindtap="ClickcategoryName" data-id="{{item.id}}">
+        <image src="{{item.src}}" class="courseImg"></image>
+        <view style="text-align: center;">{{item.categoryName}}</view>
+      </view>
+    </view>
+    <!-- 课程信息列表 -->
+    <view class="courseInfoList">
+      <view wx:if="{{!iscourseNull}}" class="course" wx:for="{{courseList}}" wx:key="{{item.id}}">
+        <courseListH bindtap="toCourseDetail"
+        data-id="{{item.id}}"
+        imgUrl="{{item.courseCoverUrl}}"
+        lessonName="{{item.courseName}}"
+        shortDec="{{item.courseShortDesc}}"
+        shortDec="{{item.courseShortDesc}}"
+        teacherImg="{{item.teacherAvatarUrl}}"
+        teacherName="{{item.teacherName}}"
+        lessonViewCount="{{item.subsStudentCount}}"
+        ></courseListH>
+      </view>
+      <block wx:if="{{iscourseNull}}">
+        <Empty></Empty>
+      </block>
+    </view>
+  </view>
+</view>

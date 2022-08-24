@@ -1,0 +1,191 @@
+.container {
+  /* height: 187vh; */
+  width: 100vw;
+  background-color: #FAE9CD;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  /* position: relative; */
+  z-index: -1;
+}
+
+.date_img {
+  height: 872rpx;
+  width: 750rpx;
+  position: absolute;
+  /* z-index: 2; */
+}
+
+/* 日期组件样式 */
+.date-position {
+  position: absolute;
+  top: 400rpx
+}
+
+.logo {
+  position: absolute;
+  left: 536rpx;
+  right: 48rpx;
+  width: 186rpx;
+  height: 64rpx;
+}
+
+.course {
+  width: 306rpx;
+  height: 74rpx;
+  position: absolute;
+  top: 282rpx;
+  left: 246rpx;
+}
+
+/* 链接图标 */
+.link {
+  width: 24rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 680rpx;
+  z-index: 100;
+}
+
+.link-1 {
+  left: 100rpx;
+}
+
+.link-2 {
+  left: 630rpx;
+}
+
+/* 每日直播 */
+.today-live {
+  box-sizing: border-box;
+  width: 694rpx;
+  /* height: 522rpx; */
+  overflow: hidden;
+  padding: 62rpx 8rpx 32rpx 12rpx;
+  background: #FFFFFF;
+  border-radius: 8px 8px 8px 8px;
+  opacity: 1;
+  /* position: absolute; */
+  margin-top: 700rpx;
+  z-index: 99;
+  position: relative;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  padding-right: 24rpx;
+}
+
+/* 底部banner */
+.bannerImg {
+  width: 694rpx;
+  /* height: 232rpx; */
+  height: 100%;
+
+  margin-top: 16rpx;
+  margin-left: 28rpx;
+  border-radius: 16rpx 16rpx 16rpx 16rpx;
+  box-sizing: border-box;
+}
+.test {
+  width: 694rpx;
+  height: 100%;
+  margin-top: 16rpx;
+  margin-left: 28rpx;
+  background-color: blue;
+  border-radius: 20rpx;
+  /* border: 1rpx solid red; */
+}
+
+.swiperitem {
+  width: 694rpx;
+  height: 332rpx;
+  /* margin-top: 16rpx; */
+  /* margin-left: 28rpx; */
+  /* border-radius: 16rpx; */
+  box-sizing: border-box;
+}
+.swiper{
+  /* width: 694rpx; */
+  overflow: hidden;
+  height: 332rpx;
+  /* border-radius: 16rpx 16rpx; */
+}
+
+/* banner空白占位 */
+.emptyBanner {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding-left: 20rpx;
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+
+/* 正在直播和直播回放 */
+.living {
+  width: 694rpx;
+  height: auto;
+  background-color: #fff;
+  border-radius: 24rpx;
+  box-sizing: border-box;
+  margin: 16rpx 28rpx 28rpx;
+  padding: 42rpx 24rpx;
+  /* padding-bottom: 0; */
+}
+.live{
+  margin-bottom: 40rpx;
+}
+.live:last-child{
+  margin-bottom: 0;
+}
+.livingHeader {
+  position: relative;
+}
+
+.living-icon {
+  width: 172rpx;
+  height: 46rpx;
+}
+
+.returnLiving {
+  margin-left: 42rpx;
+}
+
+.more {
+  color: #666;
+  position: absolute;
+  top: 6rpx;
+  right: 20rpx;
+  font-size: 12px;
+}
+
+/* 下方弧线 */
+.bottomHu {
+  width: 72rpx;
+  height: 14rpx;
+  position: absolute;
+  top: 63rpx;
+  left: 58rpx;
+  display: none;
+}
+
+.huifangHu {
+  left: 260rpx;
+}
+
+.active {
+  display: block;
+}
+
+/* 空白直播 */
+/* 直播列表 */
+.livingList {
+  margin-top: 64rpx;
+}
+
+/* 用于获取用户手机号的btn */
+.getPhoneBtn {
+  width: 680rpx;
+  height: 280rpx;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  /* border: 1px solid #000; */
+}

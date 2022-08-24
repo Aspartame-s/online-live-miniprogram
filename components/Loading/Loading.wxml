@@ -1,0 +1,3 @@
+<view class="loading" wx:if="{{isLoading}}">
+  <image src='{{imgbaseUrl}}/loading/loading.gif' class="loadingImg"></image>
+</view>

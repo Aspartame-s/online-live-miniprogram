@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/course/course",
+    "pages/plaza/plaza",
+    "pages/my/my",
+    "pages/courseDetail/courseDetail",
+    "pages/livingList/livingList",
+    "pages/viedo/viedo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "苏e学堂",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000",
+    "selectedColor": "#EB9A15",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/icon/shouyeweixuanzhong.png",
+        "selectedIconPath": "/static/icon/shouyexuanzhong.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程",
+        "iconPath": "/static/icon/kechengweixuanzhong.png",
+        "selectedIconPath": "/static/icon/kechengxuanzhong.png"
+      },
+      {
+        "pagePath": "pages/plaza/plaza",
+        "text": "广场",
+        "iconPath": "/static/icon/guangchangweixuanzhong.png",
+        "selectedIconPath": "/static/icon/guangchangxuanzhong.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/static/icon/wodeweixuanzhong.png",
+        "selectedIconPath": "/static/icon/wodexuanzhong.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-empty": "@vant/weapp/empty/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

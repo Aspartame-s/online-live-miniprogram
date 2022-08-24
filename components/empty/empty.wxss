@@ -1,0 +1,23 @@
+.emptyContainer{
+  /* height: 378rpx; */
+  /* line-height: 378rpx; */
+  /* border: 1px solid #000; */
+  box-sizing: border-box;
+}
+.empty{
+  width: 198rpx;
+  height: 170rpx;
+  /* margin: auto; */
+  margin-left: 110rpx;
+}
+.decEmptyText{
+  width: 365rpx;
+  /* margin: auto; */
+  margin-left: 150rpx;
+  height: 40rpx;
+  font-size: 14px;
+  font-family: PingFang SC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 40rpx;
+}

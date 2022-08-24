@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "liveListW":"/components/liveListW/liveListW"
+  },
+  "navigationStyle": "custom"
+}

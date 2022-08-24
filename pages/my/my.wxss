@@ -1,0 +1,171 @@
+.backgroundImg {
+  width: 100vw;
+  height: 534rpx;
+}
+
+.myContainer {
+  position: relative;
+}
+
+/* 头像位置 */
+.headPhoto {
+  width: 100vw;
+  height: 148rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 30rpx;
+}
+
+.photoBack {
+  width: 148rpx;
+  height: 148rpx;
+  /* background: #FFEDD5; */
+  border-radius: 74rpx;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headImg {
+  display: inline-block;
+  width: 148rpx;
+  height: 148rpx;
+  border-radius: 50%;
+}
+
+.userName {
+  display: inline-block;
+  font-size: 18px;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  position: absolute;
+  top: 34rpx;
+  left: 176rpx;
+}
+
+.gengxin {
+  width: 40px;
+  height: 20px;
+  border-radius: 7rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100rpx;
+  left: 176rpx;
+}
+
+.phone-button {
+  width: auto;
+  font-size: 28rpx;
+  height: 22px;
+  background-color: transparent;
+  border-radius: 7rpx;
+  color: #fff;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  top: 100rpx;
+  left: 276rpx; */
+}
+
+/* 课程&观看历史 */
+.myInfo {
+  position: absolute;
+  left: 38rpx;
+  top: 282rpx;
+}
+
+.myCourse {
+  display: inline-block;
+  /* width: 112rpx; */
+  text-align: center;
+}
+
+.lookTimes {
+  margin-left: 56rpx;
+}
+
+.num {
+  font-size: 44rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.text {
+  /* width: auto; */
+  font-size: 14px;
+  font-family: PingFang SC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+/* 历史记录 */
+.main {
+  width: 100vw;
+  background: #FFFFFF;
+  border-radius: 52rpx 52rpx 0px 0px;
+  opacity: 1;
+  position: absolute;
+  top: 424rpx;
+}
+
+.history {
+  display: flex;
+  justify-content: space-between;
+  margin: 52rpx 28rpx 54rpx 28rpx;
+}
+.history:last-child{
+  margin-bottom: 140rpx;
+}
+
+.more {
+  color: #666666;
+  font-size: 12px;
+}
+
+/* 历史记录列表 */
+.historyList {
+  width: 260rpx;
+  height: 256rpx;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 44rpx 2rpx rgba(0, 0, 0, 0.08);
+  border-radius: 16rpx;
+  opacity: 1;
+  margin-left: 28rpx;
+}
+.scroll-view_H {
+  white-space: nowrap;
+}
+.historyImg {
+  width: 260rpx;
+  height: 120rpx;
+}
+
+.historyDesc {
+  width: 196rpx;
+  height: 80rpx;
+  font-size: 14px;
+  margin: 26rpx 46rpx 30rpx 18rpx;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.icons {
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-right: 32rpx;
+}

@@ -1,0 +1,109 @@
+.courseContainer {
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+}
+
+/* 课程头部 */
+.courseHeaderPiont {
+  display: inline-block;
+  width: 10rpx;
+  height: 28rpx;
+  background: #F2B23A;
+  border-radius: 6rpx;
+
+}
+
+.hotTeacher {
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-left: 38rpx;
+  font-size: 16px;
+  color: #1E1E20;
+  font-weight: 600;
+  font-family: PingFang SC-Medium, PingFang SC;
+}
+
+/* 轮播图 */
+.content {
+  width: 694rpx;
+  height: 352rpx;
+  margin-top: 64rpx;
+}
+
+.content .swiper {
+  width: 100%;
+  height: 352rpx;
+  /* background-color: #eee; */
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.content .swiper .wx-swiper-dots {
+  /* margin-bottom: 20rpx; */
+  position: absolute;
+  bottom: 0rpx;
+}
+
+.content .swiper .wx-swiper-dot-active {
+  width: 40rpx;
+  border-radius: 10rpx;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 320rpx;
+}
+
+/* 全部课程 */
+.allCourse {
+  margin-bottom: 38rpx;
+  margin-top: 68rpx;
+}
+
+/* 分割线 */
+.split{
+  width: 750rpx;
+  background-color: #eee;
+  height: 16rpx;
+  position: absolute;
+  top: 500rpx;
+  right: 0;
+}
+.courseList {
+  padding-bottom: 48rpx;
+  /* margin-top: ; */
+}
+.course:nth-child(n+1){
+  margin-right: 20rpx;
+}
+.courseClassfiy,
+.courseImg {
+  display: inline-block;
+  width: 128rpx;
+  height: 128rpx;
+}
+.allCourseText{
+  margin-top: 28rpx;
+  display: inline-block;
+}
+
+.courseClassfiy {
+  vertical-align: top;
+}
+.courseClassfiy:nth-child(-n+3){
+  margin-right: 60rpx;
+}
+
+/* 课程信息列表 */
+.courseInfoList {
+  margin-top: 52rpx;
+  display: flex;
+}
+
+.title-container {
+  height: 44rpx;
+  width: auto;
+  display: flex;
+  align-items: center;
+}

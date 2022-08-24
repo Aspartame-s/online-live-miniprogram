@@ -1,0 +1,14 @@
+.loading {
+  background-color: #D5E8D4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingImg {
+  width: 200rpx;
+  height: 170rpx;
+  margin-right: 20rpx;
+  border-radius: 4px;
+}
+

@@ -1,0 +1,74 @@
+<view class="myContainer all">
+  <image src='{{imgbaseUrl}}/my/wodebeijing.png' class="backgroundImg"></image>
+  <view class="headPhoto">
+    <view class="photoBack">
+      <image src="{{avatarUrl}}" class="headImg"></image>
+    </view>
+    <view class="userName"><text>{{nickName}}</text></view>
+    <view class="gengxin" bindtap="click">
+      更新
+    </view>
+    <!-- <button class="phone-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">成为会员</button> -->
+  </view>
+  <!-- 我的课程 -->
+  <view class="myInfo">
+    <view class="myCourse">
+      <view class="num">{{myCourse}}</view>
+      <view class="text">我的课程</view>
+    </view>
+    <view class="myCourse lookTimes">
+      <view class="num">{{viewNum}}</view>
+      <view class="text">观看次数</view>
+    </view>
+  </view>
+  <!-- 历史记录... -->
+  <view class="main">
+    <view class="history">
+      <text>历史记录</text>
+      <view class="more" bindtap="getMore" wx:if="{{false}}">
+        <text>查看更多</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="middle">
+      <!-- 未登录则不显示历史记录列表 -->
+      <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%;white-space: nowrap">
+        <view class="historyList" wx:if="{{isLogin}}" wx:for="{{historyList}}" bindtap="gotoDetail" data-id="{{item.courseId}}">
+          <image class="historyImg" src="{{item.courseCoverUrl}}"></image>
+          <view class="historyDesc">{{item.courseName}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 小图片跳转 -->
+    <view>
+      <view class="history" bindtap="showAbout">
+        <view>
+          <image src='{{imgbaseUrl}}/my/about.png' class="icons"></image>
+          <text>关于我们</text>
+        </view>
+        <view class="more">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="history" bindtap="showVersion">
+        <view>
+          <image src='{{imgbaseUrl}}/my/versions.png' class="icons"></image>
+          <text>版本信息</text>
+        </view>
+        <view class="more">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+
+      <view class="history" bindtap="showBack">
+        <view>
+          <image src='{{imgbaseUrl}}/my/feedback.png' class="icons"></image>
+          <text>意见反馈</text>
+        </view>
+        <view class="more">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

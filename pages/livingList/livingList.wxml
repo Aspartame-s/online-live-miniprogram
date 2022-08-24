@@ -1,0 +1,38 @@
+<view class="livingList all">
+  <!-- 直播回放，历史记录页面 -->
+  <view class="header">
+    <image src='{{imgbaseUrl}}/icon/fanhui.png' class="back" bindtap="backTo"></image>
+    <text class="headerName">{{headerName}}</text>
+  </view>
+  <view class="main">
+    <view class="list" wx:if="{{position=='index'}}" wx:for="{{dataList}}" wx:key="{{item.id}}">
+      <liveListW liveList="{{dataList}}" 
+      isHuifangHead="{{true}}"
+      isHuifang="{{true}}"
+      imgUrl="{{item.liveVideoCoverUrl}}"
+      lessonName="{{item.courseName}}"
+      shortDec="{{item.liveVideoName}}"
+      teacherImg="{{item.teacherIntroductionImgUrl}}"
+      teacherName="{{item.teacherName}}"
+      isVideo="{{true}}"
+      videoUrl="{{item.liveVideoIntroductionVideoUrl}}"
+      ></liveListW>
+    </view>
+    <!-- 历史回放列表 -->
+    <view wx:if="{{position == 'my'}}" wx:for="{{historyList}}" wx:key="{{item.id}}" class="huifanglist list">
+      <view class="datalist">
+        <liveListW liveList="{{dataList}}" 
+        isVideo="{{true}}"
+        videoUrl="{{item.courseIntroductionVideoUrl}}"
+            isHuifangHead="{{true}}"
+            imgUrl="{{item.courseCoverUrl}}"
+            lessonName="{{item.courseName}}"
+            shortDec="{{item.courseShortDesc}}"
+            teacherImg="{{item.teacherAvatarUrl}}"
+            teacherName="{{item.teacherName}}"
+            history="{{history}}"
+        ></liveListW>
+      </view>
+    </view>
+ </view>
+</view>

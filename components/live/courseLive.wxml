@@ -1,0 +1,34 @@
+<view>
+  <block>
+    <block wx:if="{{liveList.length > 1 && !isNull}}"  >
+        <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%;white-space: nowrap">
+          <liveListH  todayLivelist="todayLivelist" wx:for="{{liveList}}" wx:key="item.id" bindtap="addHistory" data-id="{{itme.courseId}}"
+            liveList="{{liveList}}" 
+            imgUrl="{{item.lessonCoverUrl}}" 
+            lessonName="{{item.courseName}}" 
+            shortDec="{{item.lessonShortDesc}}"
+            teacherImg="{{item.teacherAvatarUrl}}"
+            teacherName="{{item.teacherName}}"
+            lessonViewCount="{{item.lessonViewCount}}"
+            ></liveListH>
+        </scroll-view>
+    </block>
+    <block wx:if="{{liveList.length == 1 && !isNull}}">
+      <liveListW wx:for="{{liveList}}" wx:key="item.id"
+      bindtap="addHistory" data-id="{{itme.courseId}}"
+      liveList="{{liveList}}"
+      imgUrl="{{item.lessonCoverUrl}}" 
+      lessonName="{{item.courseName}}" 
+      shortDec="{{item.lessonShortDesc}}"
+      teacherImg="{{item.teacherAvatarUrl}}"
+      teacherName="{{item.teacherName}}"
+      isShowTeacher="{{true}}" 
+      lessonElapsedTime="{{item.lessonElapsedTime}}"
+      isHuifangHead="{{true}}"
+      ></liveListW>
+    </block>
+    <view class="emptyCourse">
+      <Empty wx:if="{{liveList.length==0 || isNull}}"></Empty>
+    </view>
+  </block>
+</view>

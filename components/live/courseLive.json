@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Empty":"../empty/empty",
+    "liveListH":"../liveListH/liveListH",
+    "liveListW":"../liveListW/liveListW"
+  }
+}

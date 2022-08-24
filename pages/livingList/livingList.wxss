@@ -1,0 +1,47 @@
+.header {
+  width: 100vw;
+  height: 104rpx;
+  line-height: 104rpx;
+  margin-top: 100rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 6rpx 12rpx 2rpx rgba(0, 0, 0, 0.04);
+  padding-left: 42rpx;
+}
+
+.back {
+  width: 38.5rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.headerName {
+  display: inline-block;
+  width: auto;
+  margin-left: 232rpx;
+}
+
+/* 列表页 */
+.list {
+  padding: 56rpx 28rpx 40rpx 30rpx;
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+
+.main {
+  width: 750rpx;
+  height: 1624rpx;
+  background: #F8F8F8;
+}
+/* 回放列表 */
+.huifanglist{
+  width: auto;
+  height: 260rpx;
+  padding: 56rpx 28rpx 0rpx 24rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+}
+.datalist{
+  width: 678rpx;
+}

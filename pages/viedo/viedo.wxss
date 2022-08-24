@@ -1,0 +1,8 @@
+.viedoContainer{
+  display: flex;
+  justify-content: center;
+}
+#videoContent{
+  width: 694rpx;
+  height: 369rpx;
+}
