@@ -42,7 +42,7 @@
           <liveListH bindtap="addHistory" data-courseid="{{item.courseId}}" data-lessonid="{{item.id}}"
           isVideo="{{true}}"
           liveList="{{courseList}}" 
-          imgUrl="{{item.courseCoverUrl}}"
+          imgUrl="{{item.lessonCoverUrl}}"
           lessonName="{{item.lessonName}}"
           shortDec="{{item.lessonShortDesc}}"
           isShowTeacher="false"
