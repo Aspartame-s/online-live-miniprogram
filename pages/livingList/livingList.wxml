@@ -15,7 +15,7 @@
       teacherImg="{{item.teacherIntroductionImgUrl}}"
       teacherName="{{item.teacherName}}"
       isVideo="{{true}}"
-      videoUrl="{{item.liveVideoIntroductionVideoUrl}}"
+      videoUrl="{{item.liveVideoContentUrl}}"
       ></liveListW>
     </view>
     <!-- 历史回放列表 -->

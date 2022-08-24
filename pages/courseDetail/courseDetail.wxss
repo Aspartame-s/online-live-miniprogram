@@ -126,13 +126,17 @@
 /* 课程列表 */
 .courseList{
   position: relative;
-  padding-left: 28rpx;
+  padding: 0 28rpx;
   box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .list{
   display: inline-block;
-  margin-right: 16rpx;
-  margin-bottom: 16rpx;
+  /* margin-right: 16rpx; */
+  
   overflow: hidden;
 }
 /* 老师介绍 */

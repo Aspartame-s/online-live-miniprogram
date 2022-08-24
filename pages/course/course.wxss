@@ -71,34 +71,56 @@
   right: 0;
 }
 .courseList {
-  padding-bottom: 48rpx;
+  padding-bottom: 18rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* margin-top: ; */
 }
 .course:nth-child(n+1){
   margin-right: 20rpx;
 }
-.courseClassfiy,
-.courseImg {
+.courseClassfiy {
   display: inline-block;
   width: 128rpx;
   height: 128rpx;
+}
+.courseImg{
+  width: 88rpx;
+  height: 88rpx;
 }
 .allCourseText{
   margin-top: 28rpx;
   display: inline-block;
 }
+.active{
+  color: #F2B23A;
+}
 
 .courseClassfiy {
   vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 180rpx;
 }
-.courseClassfiy:nth-child(-n+3){
-  margin-right: 60rpx;
+.ponit {
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #F2B23A;
+  border-radius: 50%;
+  margin-top: 14rpx;
+}
+.courseClassfiy:nth-child(-n+4){
+  margin-right: 54rpx;
+
 }
 
 /* 课程信息列表 */
 .courseInfoList {
-  margin-top: 52rpx;
+  margin-top: 0rpx;
   display: flex;
+  /* justify-content: center; */
 }
 
 .title-container {

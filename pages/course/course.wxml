@@ -21,7 +21,8 @@
     <view class="courseList">
       <view class="courseClassfiy" wx:for="{{catage}}" wx:key="{{item.id}}" bindtap="ClickcategoryName" data-id="{{item.id}}">
         <image src="{{item.src}}" class="courseImg"></image>
-        <view style="text-align: center;">{{item.categoryName}}</view>
+        <view style="text-align: center;" class="{{catageId == item.id ? 'active' : ''}}" >{{item.categoryName}}</view>
+        <view class="ponit" wx:if="{{catageId == item.id}}"></view>
       </view>
     </view>
     <!-- 课程信息列表 -->
