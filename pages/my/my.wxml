@@ -31,6 +31,7 @@
       </view>
     </view>
     <view class="middle">
+    <Empty wx:if="{{!historyList.length}}"></Empty>
       <!-- 未登录则不显示历史记录列表 -->
       <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%;white-space: nowrap">
         <view class="historyList" wx:if="{{isLogin}}" wx:for="{{historyList}}" bindtap="gotoDetail" data-id="{{item.courseId}}">
@@ -42,16 +43,16 @@
     <!-- 小图片跳转 -->
     <view>
       <view class="history" bindtap="showAbout">
-        <view>
+        <view class="history-item">
           <image src='{{imgbaseUrl}}/my/about.png' class="icons"></image>
-          <text>关于我们</text>
+          关于我们
         </view>
         <view class="more">
           <van-icon name="arrow" />
         </view>
       </view>
       <view class="history" bindtap="showVersion">
-        <view>
+        <view class="history-item">
           <image src='{{imgbaseUrl}}/my/versions.png' class="icons"></image>
           <text>版本信息</text>
         </view>
@@ -61,7 +62,7 @@
       </view>
 
       <view class="history" bindtap="showBack">
-        <view>
+        <view class="history-item">
           <image src='{{imgbaseUrl}}/my/feedback.png' class="icons"></image>
           <text>意见反馈</text>
         </view>

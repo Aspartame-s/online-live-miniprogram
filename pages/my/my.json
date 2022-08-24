@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Empty":"/components/empty/empty"
+  }
+
 }

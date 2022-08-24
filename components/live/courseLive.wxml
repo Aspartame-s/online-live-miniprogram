@@ -27,8 +27,8 @@
       isHuifangHead="{{true}}"
       ></liveListW>
     </block>
-    <view class="emptyCourse">
+    <!-- <view class="emptyCourse"> -->
       <Empty wx:if="{{liveList.length==0 || isNull}}"></Empty>
-    </view>
+    <!-- </view> -->
   </block>
 </view>

@@ -4,6 +4,6 @@
   <image src='{{imgbaseUrl}}/img/wuneirong.png' class="empty"></image>
  </view>
   <view class="decEmptyText">
-    <text>{{describeText}}</text>
+    {{describeText}}
   </view>
 </view>
