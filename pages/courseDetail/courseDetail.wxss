@@ -82,7 +82,7 @@
 }
 .couseHeader{
   /* margin-bottom: 3rpx; */
-  height: 100rpx;
+  height: 80rpx;
 }
 .introduce {
   display: inline-block;
@@ -103,6 +103,7 @@
   width: 37rpx;
   height: 7rpx;
   visibility: hidden;
+  padding-bottom: 15rpx;
 }
 
 .introduceText {

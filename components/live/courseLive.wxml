@@ -1,6 +1,7 @@
 <view>
   <block>
-    <block wx:if="{{liveList.length > 1 && !isNull}}"  >
+    <block wx:if="{{liveList.length > 1 && !isNull}}" >
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="getPhoneBtn" wx:if="{{!hasPhone}}" ></button>
         <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%;white-space: nowrap">
           <liveListH  todayLivelist="todayLivelist" wx:for="{{liveList}}" wx:key="item.id" bindtap="addHistory"
             data-time="{{item.lessonElapsedTime}}"
@@ -20,6 +21,7 @@
         </scroll-view>
     </block>
     <block wx:if="{{liveList.length == 1 && !isNull}}">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="getPhoneBtn" wx:if="{{!hasPhone}}" ></button>
       <liveListW wx:for="{{liveList}}" wx:key="item.id"
       bindtap="addHistory" data-id="{{itme.courseId}}"
       data-time="{{item.lessonElapsedTime}}"

@@ -1,5 +1,7 @@
 const {
-  getTodayLive, addUserwatch
+  getTodayLive,
+  addUserwatch,
+  userPhone
 } = require('../../utils/http/api');
 const utils = require('../../utils/util');
 Component({
@@ -63,15 +65,51 @@ Component({
     // 是否是空数据
     isNull: false,
     // 是否是视频
-    isvideo:false,
+    isvideo: false,
     // 视频地址
-    videourl:''
+    videourl: '',
+    // 是否存在手机号
+    hasPhone: false
+  },
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
+      if (wx.getStorageSync('phone') == null) {
+        this.setData({
+          hasPhone: false
+        })
+      } else {
+        this.setData({
+          hasPhone: true
+        })
+      }
+    },
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    // 获取手机号
+    getPhoneNumber(e) {
+      const encryptedData = encodeURIComponent(e.detail.encryptedData)
+      const iv = encodeURIComponent(e.detail.iv)
+      const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+      console.log(wx.getStorageSync('phone'));
+      userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
+        console.log('获取用户手机号', rrr)
+        wx.setStorageSync('phone', res.data.wxAuthUser.phone);
+        this.setData({
+          hasPhone: true
+        })
+        // this.onLoad();
+        // 刷新组件
+        const page = getCurrentPages().pop(); //当前页面
+        if (page == undefined || page == null) return;
+        page.onLoad(); //或者其它操作
+      })
+    },
     addHistory: function (e) {
+      // 授权手机号
       console.log(e.currentTarget);
       // 添加一次直播
       let msg = {
@@ -81,28 +119,28 @@ Component({
         console.log('添加一次直播记录', res);
       })
       // 
-      const data =  e.currentTarget.dataset
+      const data = e.currentTarget.dataset
       if (data.time < 0) {
         wx.showToast("课程还未开始，请稍后观看")
       } else {
         if (data.obj.hasOwnProperty('lessonContentUrl')) {
           //播放视频
           this.setData({
-            isvideo:true,
-            videourl:data.lessonContentUrl
+            isvideo: true,
+            videourl: data.lessonContentUrl
           })
         } else {
           this.setData({
-            isvideo:false,
+            isvideo: false,
           })
           // 跳转视频号
           wx.openChannelsLive({
             finderUserName: 'sphfYruhmZYLxXt',
-            success:res=>{
-              console.log('成功打开',res);
+            success: res => {
+              console.log('成功打开', res);
             },
-            fail:res=>{
-              console.log('打开失败',res);
+            fail: res => {
+              console.log('打开失败', res);
             }
           })
         }

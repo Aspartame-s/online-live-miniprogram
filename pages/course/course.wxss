@@ -63,7 +63,10 @@
 /* 全部课程 */
 .allCourse {
   margin-bottom: 38rpx;
-  margin-top: 68rpx;
+  margin-top: 110rpx;
+  width: auto;
+  height: 44rpx;
+  /* border: 1px solid #000; */
 }
 
 /* 分割线 */
@@ -93,10 +96,6 @@
 .courseImg{
   width: 88rpx;
   height: 88rpx;
-}
-.allCourseText{
-  margin-top: 28rpx;
-  display: inline-block;
 }
 .active{
   color: #F2B23A;

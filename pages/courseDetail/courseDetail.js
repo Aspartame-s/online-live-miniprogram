@@ -85,6 +85,7 @@ Page({
         this.setData({
           hasPhone: true
         })
+        this.onLoad();
       })
     },
     //判断全屏事件

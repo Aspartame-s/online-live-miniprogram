@@ -11,13 +11,12 @@
         </swiper-item>
       </swiper>
     </view>
-    <!-- <image style="width: 694rpx;height: 320rpx;" src="https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/banner/t-banner-2.jpg"></image> -->
     <!-- 全部课程 -->
-    <view class="allCourse">
-      <view class="courseHeaderPiont"></view>
-      <text class="hotTeacher allCourseText">全部课程</text>
-    </view>
     <view class="split"></view>
+    <view class="allCourse title-container">
+      <view class="courseHeaderPiont"></view>
+      <text class="hotTeacher">全部课程</text>
+    </view>
     <view class="courseList">
       <view class="courseClassfiy" wx:for="{{catage}}" wx:key="{{item.id}}" bindtap="ClickcategoryName" data-id="{{item.id}}">
         <image src="{{item.src}}" class="courseImg"></image>
