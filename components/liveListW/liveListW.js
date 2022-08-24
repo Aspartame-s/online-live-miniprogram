@@ -12,7 +12,6 @@ Component({
       value: true
     },
     // 判断是否显示查看回放
-    // 判断点击的是正在直播还是查看回放
     isHuifang: {
       type: Boolean || String,
       value: false
@@ -55,7 +54,7 @@ Component({
     isHuifangHead: {
       type: Boolean,
       value: false
-    }
+    },
   },
 
   /**

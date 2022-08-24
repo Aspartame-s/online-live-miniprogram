@@ -55,7 +55,7 @@
         <block wx:if="{{!isNull && !isCourse}}">
           <image src="{{techerIntroUrl}}" class="teacherUrl"></image>
         </block>
-        <view wx:if="{{isNull}}">
+        <view wx:if="{{isNull}}" style="width: 100%;">
           <Empty id="empty"></Empty>
         </view>
       </view>

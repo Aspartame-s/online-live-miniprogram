@@ -40,7 +40,9 @@
         ></courseListH>
       </view>
       <block wx:if="{{iscourseNull}}">
+      <view style="width: 100%;">
         <Empty></Empty>
+      </view>
       </block>
     </view>
   </view>

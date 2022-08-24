@@ -167,9 +167,9 @@ Page({
   gotoLiving(e) {
     // 没有获取到用户手机号
     console.log(wx.getStorageSync('phone'));
-    if (this.data.hasPhone) {
+    // if (this.data.hasPhone) {
       
-    }
+    // }
     console.log('添加一条观看记录',e.currentTarget);
     let data2 = {
       "courseId": e.currentTarget.dataset.courseid,

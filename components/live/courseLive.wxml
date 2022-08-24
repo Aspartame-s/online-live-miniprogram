@@ -2,7 +2,13 @@
   <block>
     <block wx:if="{{liveList.length > 1 && !isNull}}"  >
         <scroll-view class="scroll-view_H" scroll-x="true" style="width:100%;white-space: nowrap">
-          <liveListH  todayLivelist="todayLivelist" wx:for="{{liveList}}" wx:key="item.id" bindtap="addHistory" data-id="{{itme.courseId}}"
+          <liveListH  todayLivelist="todayLivelist" wx:for="{{liveList}}" wx:key="item.id" bindtap="addHistory"
+            data-time="{{item.lessonElapsedTime}}"
+            data-url="{{item.lessonContentUrl}}"
+            data-obj="{{item}}"
+            isVideo="{{isvideo}}"
+            videoUrl="{{videourl}}"
+            data-id="{{itme.courseId}}"
             liveList="{{liveList}}" 
             imgUrl="{{item.lessonCoverUrl}}" 
             lessonName="{{item.courseName}}" 
@@ -16,6 +22,11 @@
     <block wx:if="{{liveList.length == 1 && !isNull}}">
       <liveListW wx:for="{{liveList}}" wx:key="item.id"
       bindtap="addHistory" data-id="{{itme.courseId}}"
+      data-time="{{item.lessonElapsedTime}}"
+      data-url="{{item.lessonContentUrl}}"
+      data-obj="{{item}}"
+      isVideo="{{isvideo}}"
+      videoUrl="{{videourl}}"
       liveList="{{liveList}}"
       imgUrl="{{item.lessonCoverUrl}}" 
       lessonName="{{item.courseName}}" 
@@ -24,7 +35,7 @@
       teacherName="{{item.teacherName}}"
       isShowTeacher="{{true}}" 
       lessonElapsedTime="{{item.lessonElapsedTime}}"
-      isHuifangHead="{{true}}"
+      isHuifangHead="{{!isvideo}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

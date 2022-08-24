@@ -123,6 +123,7 @@
 
 /* 课程信息列表 */
 .courseInfoList {
+  width: 100%;
   margin-top: 0rpx;
   display: flex;
   /* justify-content: center; */
