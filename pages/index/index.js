@@ -157,10 +157,14 @@ Page({
   getPhoneNumber(e) {
     const encryptedData = encodeURIComponent(e.detail.encryptedData)
     const iv = encodeURIComponent(e.detail.iv)
-    const sessionId = wx.getStorageSync('sessionId')
+    const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
     console.log(wx.getStorageSync('phone'));
     userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
       console.log('获取用户手机号',rrr)
+      wx.setStorageSync('phone', res.data.wxAuthUser.phone);
+      this.setData({
+        hasPhone: true
+      })
     })
   },
   // 跳转视频号
