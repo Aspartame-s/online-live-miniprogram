@@ -1,7 +1,7 @@
 // 引入env中的url
 const {
   baseUrl
-} = require('./env.js').prod;
+} = require('./env.js').test;
 var app = getApp()
 // 专属域名
 let subDomain = wx.getStorageSync('jwt')
@@ -9,10 +9,10 @@ let postHeader = {
   // 'content-type': 'application/json',
   'Content-Length': 0,
   'enableCache': true,
-  'jwt': subDomain
+  // 'jwt': subDomain
 }
 let getHeader ={
-  'jwt': subDomain
+  // 'jwt': subDomain
 }
 // let postHeader = {
 //   'content-type': 'application/x-www-form-urlencoded'

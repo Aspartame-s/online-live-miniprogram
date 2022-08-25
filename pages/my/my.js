@@ -101,12 +101,14 @@ Page({
         const jwt = encodeURIComponent(wx.getStorageSync('jwt'))
         const encryptedData = encodeURIComponent(res.encryptedData)
         const iv = encodeURIComponent(res.iv)
+        const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
+        const openid = encodeURIComponent(wx.getStorageSync('openid'))
         // 存储到loaclstorage
         wx.setStorageSync('signature', res.signature)
         wx.setStorageSync('rawData', res.rawData)
         const signature = encodeURIComponent(wx.getStorageSync('signature'));
         const rawData = encodeURIComponent(wx.getStorageSync('rawData'))
-        userInfo(`wx/user/info?sessionId=${sessionId}&signature=${signature}&rawData=${rawData}&encryptedData=${encryptedData}&iv=${iv}&jwt=${jwt}`).then(rr => {
+        userInfo(`wx/user/info?sessionKey=${sessionKey}&signature=${signature}&rawData=${rawData}&encryptedData=${encryptedData}&iv=${iv}&jwt=${jwt}&openid=${openid}`).then(rr => {
           console.log(rr)
           this.setData({
             avatarUrl: rr.data.avatarUrl,

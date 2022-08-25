@@ -1,4 +1,5 @@
 var app = getApp()
+const { addUserwatch } = require('../../utils/http/api')
 Component({
   /**
    * 组件的属性列表
@@ -55,6 +56,14 @@ Component({
       type: Boolean,
       value: false
     },
+    courseId: {
+      type: String,
+      value: ''
+    },
+    lessonId: {
+      type: String,
+      value: ''
+    }
   },
 
   /**
@@ -91,10 +100,16 @@ Component({
     },
     // 视频退出全屏
     screenchange: function (e) {
-      console.log(e)
+      let data1 = {
+        "courseId": this.data.courseId,
+        "lessonId": this.data.lessonId
+      }
       let videoplay = wx.createVideoContext('myVideo', this)
       if (e.detail.fullScreen) {
         videoplay.play()
+        addUserwatch('userwatch', data1).then(res => {
+          console.log('添加一次直播', res);
+        })
       } else {
         videoplay.pause()
       }
