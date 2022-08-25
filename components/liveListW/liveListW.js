@@ -142,6 +142,7 @@ Component({
     },
     // 视频退出全屏
     screenchange: function (e) {
+      console.log(e.currentTarget);
       let data1 = {
         "courseId": this.properties.courseId,
         "lessonId": this.properties.lessonId,

@@ -118,16 +118,16 @@ Component({
       //   // if (page == undefined || page == null) return;
       //   // page.onLoad(); //或者其它操作
       // })
-      if(!e.detail.cloudID) {
+      if (!e.detail.cloudID) {
         return
-      }else {
+      } else {
         const encryptedData = encodeURIComponent(e.detail.encryptedData)
         const iv = encodeURIComponent(e.detail.iv)
         // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
         const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
         const openid = encodeURIComponent(wx.getStorageSync('openid'))
         await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
-          console.log('获取用户手机号',rrr)
+          console.log('获取用户手机号', rrr)
           wx.setStorageSync('phone', rrr.data);
           this.setData({
             hasPhone: true
@@ -137,29 +137,29 @@ Component({
         })
         this.addHistory()
       }
-     
+
     },
     addHistory: function (e) {
       console.log('start')
       console.log(e.currentTarget);
-      // 添加一次直播
-      let msg = {
-        "courseId": e.currentTarget.dataset.courseId,
-        "lessonId":e.currentTarget.dataset.obj.id
-      }
-      addUserwatch('/userwatch', msg).then(res => {
-        console.log('添加一次直播记录', res);
-      })
-      // 
       const data = e.currentTarget.dataset
       if (data.time < 0) {
         console.log('还未开始')
         wx.showModal({
           title: '课程还未开始',
-          content:'请稍后观看',
-          showCancel:false
+          content: '请稍后观看',
+          showCancel: false
         })
-      } else{
+      } else {
+        // 添加一次直播 
+        let msg = {
+          "courseId": e.currentTarget.dataset.obj.courseId,
+          "lessonId": e.currentTarget.dataset.obj.id
+        }
+        console.log('/userwatch', msg);
+        addUserwatch('/userwatch', msg).then(res => {
+          console.log('添加一次直播记录', res);
+        })
         if (data.obj.hasOwnProperty('lessonContentUrl')) {
           console.log('播放视频')
           //播放视频
@@ -185,7 +185,6 @@ Component({
         }
       }
       console.log('end')
-
     },
     // 分割时间
   },
