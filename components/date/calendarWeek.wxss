@@ -34,8 +34,9 @@
 .back-today {
   width: 112rpx;
   height: 38rpx;
-  line-height: 38rpx;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 24rpx;
   color: #333333;
   border: 1rpx solid #999999;
