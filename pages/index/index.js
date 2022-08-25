@@ -177,7 +177,6 @@ Page({
     const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
     const openid = encodeURIComponent(wx.getStorageSync('openid'))
     await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
-
       console.log('获取用户手机号',rrr)
       wx.setStorageSync('phone', rrr.data);
       this.setData({
@@ -215,7 +214,6 @@ Page({
       "lessonId": e.currentTarget.dataset.lessonid,
       "liveId":e.currentTarget.dataset.liveid,
     }
-    
     wx.openChannelsLive({
       finderUserName: 'sphfYruhmZYLxXt',
       success:res=>{

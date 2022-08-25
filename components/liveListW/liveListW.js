@@ -65,12 +65,20 @@ Component({
       type: String,
       value: ''
     },
-
+    liveId:{
+      type:String,
+      value:''
+    },
     // 格式化好的时间
-    times:'',
+    times:{
+      type:String,
+      value:''
+    },
     // 判断是视频号还是视频
-    subflag:'',
-    times:''
+    subflag:{
+      type:String || Number,
+      value:"0"
+    },
 
   },
 
@@ -135,15 +143,17 @@ Component({
     // 视频退出全屏
     screenchange: function (e) {
       let data1 = {
-        "courseId": this.data.courseId,
-        "lessonId": this.data.lessonId
+        "courseId": this.properties.courseId,
+        "lessonId": this.properties.lessonId,
+        "liveId":this.properties.liveId
       }
       let videoplay = wx.createVideoContext('myVideo', this)
+      console.log('userwatch', data1);
+      addUserwatch('userwatch', data1).then(res => {
+        console.log('添加一次直播', res);
+      })
       if (e.detail.fullScreen) {
         videoplay.play()
-        addUserwatch('userwatch', data1).then(res => {
-          console.log('添加一次直播', res);
-        })
       } else {
         videoplay.pause()
       }

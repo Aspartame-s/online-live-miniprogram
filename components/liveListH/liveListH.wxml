@@ -1,6 +1,6 @@
 <view class="liveContainerMany" wx:if="{{!isloading}}">
   <view class="coverImg liveContainerManyContainer">
-    <view class="time" wx:if="{{times != null}}">
+    <view class="time" wx:if="{{times != ''}}">
     <text>{{times}}</text>
   </view>
     <image src="{{imgUrl}}" class="coverImg high" bindtap="bofang"></image>

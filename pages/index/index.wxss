@@ -115,7 +115,7 @@
   background-color: #fff;
   border-radius: 24rpx;
   box-sizing: border-box;
-  margin: 10rpx 28rpx 28rpx;
+  margin: 5rpx 28rpx 28rpx;
   padding: 42rpx 24rpx;
   /* padding-bottom: 0; */
 }
@@ -142,7 +142,7 @@
   color: #666;
   position: absolute;
   top: 6rpx;
-  right: 15rpx;
+  right: 10rpx;
   font-size: 12px;
 }
 .jiantou{

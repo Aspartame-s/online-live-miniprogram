@@ -17,6 +17,7 @@
             teacherImg="{{item.teacherAvatarUrl}}"
             teacherName="{{item.teacherName}}"
             lessonViewCount="{{item.lessonViewCount}}"
+            times="{{times[index]}}"
             ></liveListH>
         </scroll-view>
     </block>
@@ -38,6 +39,7 @@
       isShowTeacher="{{true}}" 
       lessonElapsedTime="{{item.lessonElapsedTime}}"
       isHuifangHead="{{!isvideo}}"
+      times="{{times[index]}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

@@ -1,7 +1,7 @@
 <!--components/liveListW/liveListW.wxml-->
 <view class="liveContainerOne">
   <view class="coverOneContainer">
-  <view class="time" wx:if="{{times != null}}">
+  <view class="time" wx:if="{{times != ''}}">
     <text>{{times}}</text>
   </view>
     <image src="{{imgUrl}}" class="coverOneImg {{history}} topHigh" bindtap="bofang"></image>

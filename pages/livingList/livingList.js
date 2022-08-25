@@ -50,8 +50,10 @@ Page({
             dataList: res.data.content,
             isNull: false
           })
-          if (this.data.dataList.length < this.res.data.numberOfElements) {
-            
+          if (this.data.dataList.length <= res.data.numberOfElements) {
+            this.setData({
+              isEmpty:false
+            })
           }
         } else {
           this.setData({
