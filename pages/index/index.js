@@ -157,19 +157,24 @@ Page({
   getPhoneNumber(e) {
     const encryptedData = encodeURIComponent(e.detail.encryptedData)
     const iv = encodeURIComponent(e.detail.iv)
-    const sessionId = wx.getStorageSync('sessionId')
+    const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
     console.log(wx.getStorageSync('phone'));
     userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
       console.log('获取用户手机号',rrr)
+      wx.setStorageSync('phone', res.data.wxAuthUser.phone);
+      this.setData({
+        hasPhone: true
+      })
+      this.onLoad();
     })
   },
   // 跳转视频号
   gotoLiving(e) {
     // 没有获取到用户手机号
     console.log(wx.getStorageSync('phone'));
-    if (this.data.hasPhone) {
+    // if (!this.data.hasPhone) {
       
-    }
+    // }
     console.log('添加一条观看记录',e.currentTarget);
     let data2 = {
       "courseId": e.currentTarget.dataset.courseid,

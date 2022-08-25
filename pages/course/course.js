@@ -22,7 +22,7 @@ Page({
     iscourseNull: false,
     // 没有更多了
     isMore: true,
-    catageClassImg: ['https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/shufa.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/meishu.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/yinyue.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/wudao.png'],
+    catageClassImg: ['/static/img/all.png','https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/shufa.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/meishu.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/yinyue.png', 'https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/view/img/wudao.png'],
     catage: [],
     // 当前课程的分类id
     catageId: '',
@@ -49,6 +49,12 @@ Page({
         arr[index].src = this.data.catageClassImg[index];
       });
       console.log('分类列表', arr);
+      const string = arr.find(item => {
+        return item.categoryName == '全部'
+      })
+      this.setData({
+        catageId: string.id
+      })
       this.setData({
         catage: arr
       })
@@ -61,7 +67,7 @@ Page({
       catageId: e.currentTarget.dataset.id
     })
     console.log(this.data.catageId);
-    this.getCourseCatage(e.currentTarget.dataset.id);
+    this.getCourseCatage(e.currentTarget.dataset.id == "1" ? "" : e.currentTarget.dataset.id);
   },
   getCourseCatage: function (id='') {
     // 获取课程列表

@@ -82,7 +82,7 @@
 }
 .couseHeader{
   /* margin-bottom: 3rpx; */
-  height: 100rpx;
+  height: 80rpx;
 }
 .introduce {
   display: inline-block;
@@ -103,6 +103,7 @@
   width: 37rpx;
   height: 7rpx;
   visibility: hidden;
+  padding-bottom: 15rpx;
 }
 
 .introduceText {
@@ -126,13 +127,17 @@
 /* 课程列表 */
 .courseList{
   position: relative;
-  padding-left: 28rpx;
+  padding: 0 28rpx;
   box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .list{
   display: inline-block;
-  margin-right: 16rpx;
-  margin-bottom: 16rpx;
+  /* margin-right: 16rpx; */
+  
   overflow: hidden;
 }
 /* 老师介绍 */

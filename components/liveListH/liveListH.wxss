@@ -2,7 +2,8 @@
   display: inline-block;
   width: 334rpx;
   height: 428rpx;
-  margin-right: 10rpx;
+  /* margin-right: 10rpx; */
+  margin-bottom: 16rpx;
   background: #FFFFFF;
   box-shadow: 0px 8rpx 8rpx 2rpx rgba(0, 0, 0, 0.07);
   border-radius: 16rpx 16rpx 16rpx 16rpx;
@@ -87,21 +88,28 @@
 }
 
 .teacherDec {
-  position: relative;
   margin-top: 16rpx;
+  padding-left: 12rpx;
+  padding-right: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* 观看数量 */
 .viewNum {
   display: inline-block;
-  position: absolute;
+  /* position: absolute;
   right: 44rpx;
-  top: 10rpx;
+  top: 10rpx; */
   /* margin-left: 88rpx; */
   font-size: 12px;
   color: #666666;
 }
-
+.teacher{
+  display: flex;
+  align-items: center;
+}
 .viewNumText {
   display: inline-block;
   margin-left: 5rpx;

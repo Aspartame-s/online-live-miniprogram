@@ -9,10 +9,10 @@
     <view class="lessonName">{{lessonName}}</view>
     <view class="lessondecText">{{shortDec}}</view>
     <view class="teacherDec">
-      <block wx:if="{{isShowTeacher}}">
+      <view wx:if="{{isShowTeacher}}" class="teacher">
         <image src="{{teacherImg}}" class="teacherImg"></image>
         <text style="color:#666; font-size: 12px;">{{teacherName}}</text>
-      </block>
+      </view>
       <view class="viewNum">
         <van-icon name="eye-o" id="eye" />
         <text class="viewNumText">{{lessonViewCount}}</text>

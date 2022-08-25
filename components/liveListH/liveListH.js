@@ -98,4 +98,14 @@ Component({
       }
     },
   }
+  // 手机号授权
+  // if(lessonElapsedTime < 0) {
+  //   wx.showToast("课程还未开始，请稍后观看")
+  // } else {
+  //   if(Objects.hasKey(lessonContentUrl)) {
+  //     //播放视频
+  //   } else {
+  //     跳转视频号
+  //   }
+  // }
 })

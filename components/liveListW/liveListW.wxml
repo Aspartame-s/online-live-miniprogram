@@ -18,7 +18,7 @@
     <view class="teacherDesc" wx:if="{{isShowTeacher}}">
       <image src="{{teacherImg}}" class="teacherImg"></image>
       <text class="teacherName">{{teacherName}}</text>
-      <!-- <text class="startTime">已开播{{lessonElapsedTime}}分钟</text> -->
+      <text class="startTime" wx:if="{{!isHuifangHead}}">已播{{lessonElapsedTime}}分钟</text>
     </view>
     <view wx:if="{{isHuifang}}" class="huifang" bindtap="bofang">
       <text class="">查看回放</text>

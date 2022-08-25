@@ -42,7 +42,7 @@
     <view class="livingList">
       <block wx:if="{{!livingNull && !isShow}}" wx:for="{{livingList}}" wx:key="{{item.id}}">
         <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!hasPhone}}" class="getPhoneBtn"></button>
-        <liveListW bindtap="gotoLiving" data-liveid="{{item.id}}" data-lessonid="{{item.lessonId}}" data-courseId="{{item.courseId}}" imgUrl="{{item.liveVideoCoverUrl}}" lessonName="{{item.liveVideoName}}" shortDec="{{item.liveVideoShortDesc}}" teacherImg="{{item.teacherAvatarUrl}}" teacherName="{{item.teacherName}}" lessonElapsedTime="{{item.liveVideoElapsedTime}}"></liveListW>
+        <liveListW bindtap="gotoLiving" data-liveid="{{item.id}}" data-lessonid="{{item.lessonId}}" data-courseId="{{item.courseId}}" imgUrl="{{item.liveVideoCoverUrl}}" lessonName="{{item.liveVideoName}}" shortDec="{{item.liveVideoShortDesc}}" teacherImg="{{item.teacherAvatarUrl}}" teacherName="{{item.teacherName}}" lessonElapsedTime="{{item.liveVideoElapsedTime}}" isHuifangHead="{{false}}"></liveListW>
       </block>
       <block wx:if="{{livingNull && !isShow}}">
         <view class="nullLiving">
