@@ -1,7 +1,8 @@
 <view class="livingList all">
   <!-- 直播回放，历史记录页面 -->
   <view class="header">
-    <image src='{{imgbaseUrl}}/icon/fanhui.png' class="back" bindtap="backTo"></image>
+  <!-- '{{imgbaseUrl}}/icon/fanhui.png' -->
+    <image src="/static/img/fanhuijiantou.png" class="back" bindtap="backTo"></image>
     <text class="headerName">{{headerName}}</text>
   </view>
   <view class="main">

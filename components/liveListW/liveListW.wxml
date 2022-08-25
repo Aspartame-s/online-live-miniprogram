@@ -1,8 +1,11 @@
 <!--components/liveListW/liveListW.wxml-->
 <view class="liveContainerOne">
   <view class="coverOneContainer">
+  <view class="time" wx:if="{{times != null}}">
+    <text>{{times}}</text>
+  </view>
     <image src="{{imgUrl}}" class="coverOneImg {{history}} topHigh"></image>
-    <video src="{{videoUrl}}" class="coverOneImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" object-fit="fill" bindfullscreenchange="screenchange"></video>
+    <video src="{{videoUrl}}" class="coverOneImg" poster="{{imgUrl}}" bindended='endAction' show-center-play-btn="{{false}}" id="myVideo" controls="{{iscontrols}}" wx:if="{{isVideo}}" bindfullscreenchange="screenchange"></video>
     <image src='{{imgbaseUrl}}/course/bofang.png' wx:if="{{isVideo}}" class="bofangImg" bindtap="bofang"></image>
     <!-- 是回放的头部不显示正在直播 默认false -->
     <block wx:if="{{!isHuifangHead}}">

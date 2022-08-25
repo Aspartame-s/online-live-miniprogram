@@ -56,6 +56,7 @@ Component({
       type: Boolean,
       value: false
     },
+
     courseId: {
       type: String,
       value: ''
@@ -63,7 +64,11 @@ Component({
     lessonId: {
       type: String,
       value: ''
-    }
+    },
+
+    // 格式化好的时间
+    times:''
+
   },
 
   /**

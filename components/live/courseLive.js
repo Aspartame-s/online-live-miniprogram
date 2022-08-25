@@ -4,6 +4,7 @@ const {
   userPhone
 } = require('../../utils/http/api');
 const utils = require('../../utils/util');
+import { formhhmm } from '../../utils/util'
 Component({
   /**
    * 组件的属性列表
@@ -25,8 +26,6 @@ Component({
       } else {
         date = this.properties.clickDate
       }
-      // console.log(date);
-      // console.log('lesson/by-date/' + date);
       getTodayLive('lesson/by-date/' + date).then(res => {
         console.log('根据时间获取到的直播列表', res);
         console.log(res.hasOwnProperty('data'));
@@ -45,6 +44,15 @@ Component({
             })
             console.log('指定日期课程列表', this.data.liveList);
           }
+          // 分割时间
+          let arr1 = [];
+          this.data.liveList.forEach(item => {
+            let a = item.lessonStartAt.substring(11, 16)
+            arr1.push(a)
+          });
+          this.setData({
+            times: arr1
+          })
         } else {
           // 数据为空状态
           this.setData({
@@ -69,7 +77,9 @@ Component({
     // 视频地址
     videourl: '',
     // 是否存在手机号
-    hasPhone: false
+    hasPhone: false,
+    // 显示时间
+    times: []
   },
   lifetimes: {
     attached: function () {
@@ -83,6 +93,7 @@ Component({
           hasPhone: true
         })
       }
+
     },
   },
   /**
@@ -145,6 +156,7 @@ Component({
           })
         }
       }
-    }
+    },
+    // 分割时间
   },
 })

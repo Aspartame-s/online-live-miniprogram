@@ -39,7 +39,9 @@ Component({
     subFlag: {
       type: Number,
       value: 0
-    }
+    },
+    // 格式化之后的时间
+    times:''
   },
   observers: {
     'liveList': function () {

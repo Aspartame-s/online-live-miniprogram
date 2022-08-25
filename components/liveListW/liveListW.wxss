@@ -22,17 +22,36 @@
   position: absolute;
   z-index: 10;
 }
+
 /* 设置图片 */
-.topHigh{
+.topHigh {
   z-index: 9;
   position: absolute;
 }
+
 .coverOneImg {
   width: 320rpx;
   height: 208rpx;
   border-radius: 24rpx;
   opacity: 1;
   /* display: inline; */
+}
+
+.time {
+  width: 80rpx;
+  height: 40rpx;
+  background: #FD9770;
+  border-radius: 4px 4px 4px 4px;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }
 
 .history {
@@ -61,7 +80,8 @@
   color: #fff;
   font-size: 10px;
 }
-.zhiboIcon{
+
+.zhiboIcon {
   width: 24rpx;
   height: 22rpx;
   margin-left: 12rpx;
