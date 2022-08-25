@@ -63,7 +63,7 @@ Component({
   methods: {
     // 点击播放按钮
     bofang: function () {
-      console.log(this.properties.subFlag);
+      // console.log(this.properties.subFlag);
       if (this.properties.subFlag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({

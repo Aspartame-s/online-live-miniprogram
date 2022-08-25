@@ -165,34 +165,41 @@ Page({
       })
     }
   },
-  getPhoneNumber(e) {
+  async getPhoneNumber(e) {
     console.log(e)
    if(!e.detail.cloudID) {
      return
-   }
-    console.log(wx.getStorageSync('phone') == '');
-    if(wx.getStorageSync('phone')) {
-      console.log('现在有手机号，button应该不显示2')
-      this.setData({
-        hasPhone: true
-      })
-      return
-    }
+   }else {
     const encryptedData = encodeURIComponent(e.detail.encryptedData)
     const iv = encodeURIComponent(e.detail.iv)
-    const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+    // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
     const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
-    console.log(sessionKey)
     const openid = encodeURIComponent(wx.getStorageSync('openid'))
-    userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+    await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+
       console.log('获取用户手机号',rrr)
       wx.setStorageSync('phone', rrr.data);
       this.setData({
         hasPhone: true
       })
       console.log('已设置button隐藏')
-      this.onLoad();
+      // this.onLoad();
     })
+    var header = this.selectComponent("#zizujian")
+    header.bofang()
+   }
+    // console.log(wx.getStorageSync('phone') == '');
+    // if(wx.getStorageSync('phone')) {
+    //   console.log('现在有手机号，button应该不显示2')
+    //   this.setData({
+    //     hasPhone: true
+    //   })
+    //   // return
+    // }else {
+      
+      
+    // }
+    
   },
   // 跳转视频号
   gotoLiving(e) {

@@ -92,6 +92,9 @@ Component({
     intoHistory: function (e) {
       console.log('直播回放', e.currentTarget);
     },
+    testClick() {
+      console.log('我是子组件')
+    },
     bofang: function () {
       console.log('bofang')
       this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
@@ -101,7 +104,7 @@ Component({
       this.setData({
         iscontrols: true
       })
-      console.log(this.properties.subflag);
+      // console.log(this.properties.subflag);
       if (this.properties.subflag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({

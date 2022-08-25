@@ -68,5 +68,11 @@ module.exports = {
   //历史记录
   historyWacth(url) {
     return request(url,'GET',{});
+  },
+
+  //根据日期
+  byDate(url) {
+    return request(url,'GET',{});
   }
+
 }

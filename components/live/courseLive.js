@@ -101,26 +101,46 @@ Component({
    */
   methods: {
     // 获取手机号
-    getPhoneNumber(e) {
-      const encryptedData = encodeURIComponent(e.detail.encryptedData)
-      const iv = encodeURIComponent(e.detail.iv)
-      const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
-      console.log(wx.getStorageSync('phone'));
-      userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
-        console.log('获取用户手机号', rrr)
-        wx.setStorageSync('phone', res.data.wxAuthUser.phone);
-        this.setData({
-          hasPhone: true
+    async getPhoneNumber(e) {
+      // const encryptedData = encodeURIComponent(e.detail.encryptedData)
+      // const iv = encodeURIComponent(e.detail.iv)
+      // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+      // console.log(wx.getStorageSync('phone'));
+      // userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
+      //   console.log('获取用户手机号', rrr)
+      //   wx.setStorageSync('phone', res.data.wxAuthUser.phone);
+      //   this.setData({
+      //     hasPhone: true
+      //   })
+      //   // this.onLoad();
+      //   // 刷新组件
+      //   // const page = getCurrentPages().pop(); //当前页面
+      //   // if (page == undefined || page == null) return;
+      //   // page.onLoad(); //或者其它操作
+      // })
+      if(!e.detail.cloudID) {
+        return
+      }else {
+        const encryptedData = encodeURIComponent(e.detail.encryptedData)
+        const iv = encodeURIComponent(e.detail.iv)
+        // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+        const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
+        const openid = encodeURIComponent(wx.getStorageSync('openid'))
+        await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+          console.log('获取用户手机号',rrr)
+          wx.setStorageSync('phone', rrr.data);
+          this.setData({
+            hasPhone: true
+          })
+          console.log('已设置button隐藏')
+          // this.onLoad();
         })
-        // this.onLoad();
-        // 刷新组件
-        const page = getCurrentPages().pop(); //当前页面
-        if (page == undefined || page == null) return;
-        page.onLoad(); //或者其它操作
-      })
+        this.addHistory()
+      }
+     
     },
     addHistory: function (e) {
-      // 授权手机号
+      console.log('start')
       console.log(e.currentTarget);
       // 添加一次直播
       let msg = {
@@ -131,20 +151,26 @@ Component({
       })
       // 
       const data = e.currentTarget.dataset
-      if (data.time < 0) {
-        wx.showToast("课程还未开始，请稍后观看")
-      } else {
+      if (data.time > 0) {
+        console.log('还未开始')
+        wx.showModal({
+          title: '课程还未开始',
+          content:'请稍后观看',
+          showCancel:false
+        })
+      } else{
         if (data.obj.hasOwnProperty('lessonContentUrl')) {
+          console.log('播放视频')
           //播放视频
           this.setData({
             isvideo: true,
             videourl: data.lessonContentUrl
           })
         } else {
+          console.log('跳转视频号')
           this.setData({
             isvideo: false,
           })
-          // 跳转视频号
           wx.openChannelsLive({
             finderUserName: 'sphfYruhmZYLxXt',
             success: res => {
@@ -154,8 +180,11 @@ Component({
               console.log('打开失败', res);
             }
           })
+          console.log('已跳转视频号')
         }
       }
+      console.log('end')
+
     },
     // 分割时间
   },

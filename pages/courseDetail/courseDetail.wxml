@@ -36,10 +36,10 @@
     </view>
     <!-- 课程列表 -->
     <view class="courseList">
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!hasPhone}}"  class="getPhoneBtn"></button>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}"  class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
         <block wx:if="{{!isNull && isCourse}}">
          <view wx:for="{{courseList}}" wx:key="{{item.id}}" class="list">
-          <liveListH bindtap="addHistory" data-courseid="{{item.courseId}}" data-lessonid="{{item.id}}"
+          <liveListH id="zizujian" bindtap="addHistory" data-courseid="{{item.courseId}}" data-lessonid="{{item.id}}"
           isVideo="{{true}}"
           liveList="{{courseList}}" 
           imgUrl="{{item.lessonCoverUrl}}"

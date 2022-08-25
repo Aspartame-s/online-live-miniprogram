@@ -1,6 +1,6 @@
 var utils = require('../../utils/util')
-import { getScopeArr, getDay } from '../../utils/getDate.js'
-
+import { getScopeArr, getDay,  } from '../../utils/getDate.js'
+import {byDate} from '../../utils/http/api'
 Component({
   /**
    * 组件的属性列表

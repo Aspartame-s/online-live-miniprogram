@@ -109,7 +109,8 @@ Page({
         const signature = encodeURIComponent(wx.getStorageSync('signature'));
         const rawData = encodeURIComponent(wx.getStorageSync('rawData'))
         userInfo(`wx/user/info?sessionKey=${sessionKey}&signature=${signature}&rawData=${rawData}&encryptedData=${encryptedData}&iv=${iv}&jwt=${jwt}&openid=${openid}`).then(rr => {
-          console.log(rr)
+          // console.log(rr)
+          console.log('更新数据', rr)
           this.setData({
             avatarUrl: rr.data.avatarUrl,
             nickName: rr.data.nickName

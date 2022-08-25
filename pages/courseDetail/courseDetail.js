@@ -1,5 +1,5 @@
 // pages/courseDetail/courseDetail.js
-const { getCourseDetail, addUserwatch } = require('../../utils/http/api')
+const { getCourseDetail, addUserwatch, userPhone } = require('../../utils/http/api')
 var app = getApp()
 Page({
 
@@ -49,7 +49,7 @@ Page({
                 title: res.data.courseName,
                 courseDec: res.data.courseShortDesc,
                 techerIntroUrl: res.data.teacherIntroductionImgUrl,
-                isCourse:false,
+                isCourse:true,
                 isNull:false
             })
             if (res.data.lessonBoPage.empty) {
@@ -76,19 +76,36 @@ Page({
         })
     },
     //授权手机号
-    getPhoneNumber(e) {
-      const encryptedData = encodeURIComponent(e.detail.encryptedData)
-      const iv = encodeURIComponent(e.detail.iv)
-      const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
-      console.log(wx.getStorageSync('phone'));
-      userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
-        console.log('获取用户手机号',rrr)
-        wx.setStorageSync('phone', res.data.wxAuthUser.phone);
-        this.setData({
-          hasPhone: true
-        })
-        this.onLoad();
-      })
+    async getPhoneNumber(e) {
+        if(!e.detail.cloudID) {
+            return
+          }else {
+            const encryptedData = encodeURIComponent(e.detail.encryptedData)
+           const iv = encodeURIComponent(e.detail.iv)
+           // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+           const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
+           const openid = encodeURIComponent(wx.getStorageSync('openid'))
+           await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+             console.log('获取用户手机号',rrr)
+             wx.setStorageSync('phone', rrr.data);
+             this.setData({
+               hasPhone: true
+             })
+             console.log('已设置button隐藏')
+             // this.onLoad();
+           })
+           var header = this.selectComponent("#zizujian")
+    header.bofang()
+          }
+        //    console.log(wx.getStorageSync('phone') == '');
+        //    if(wx.getStorageSync('phone')) {
+        //      console.log('现在有手机号，button应该不显示2')
+        //      this.setData({
+        //        hasPhone: true
+        //      })
+        //      return
+        //    }
+           
     },
     //判断全屏事件
     screenchange(e) {
@@ -124,6 +141,7 @@ Page({
         addUserwatch('userwatch', data1).then(res => {
             console.log('记录一次课时观看记录', res);
         })
+
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
