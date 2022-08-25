@@ -43,7 +43,7 @@
           data-obj="{{item}}"
           data-time="{{item.lessonElapsedTime}}"
           data-url="{{item.lessonContentUrl}}"
-          isVideo="{{isVideo}}"
+          isVideo="{{true}}"
           liveList="{{courseList}}" 
           imgUrl="{{item.lessonCoverUrl}}"
           lessonName="{{item.lessonName}}"

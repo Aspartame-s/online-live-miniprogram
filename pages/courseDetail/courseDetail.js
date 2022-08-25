@@ -14,7 +14,7 @@ Page({
     // 视频地址
     videoUrl: '',
     // 是否是视频
-    isVideo:false,
+    isVideo: true,
     // 课程介绍
     title: '',
     courseDec: '',
@@ -26,18 +26,18 @@ Page({
     isNull: false,
     // 老师介绍图片
     techerIntroUrl: '',
-    // 
     iscontrols: false,
     // 是否拥有手机号
     hasPhone: false,
     // 是否跳转视频好=号 0==视频 1==视频号
-    subFlag:'0'
+    subFlag: '0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(wx.getStorageSync('phone'));
     if (wx.getStorageSync('phone')) {
       this.setData({
         hasPhone: true
@@ -99,6 +99,7 @@ Page({
       })
       var header = this.selectComponent("#zizujian")
       header.bofang()
+      // this.addHistory();
     }
   },
   //判断全屏事件
@@ -129,6 +130,7 @@ Page({
   addHistory: function (e) {
     // 判断当前是否是视频号跳转的页面的数据
     const abc = e.currentTarget.dataset
+    console.log('课程详情判断',abc);
     if (abc.time < 0) {
       wx.showModal({
         title: '课程还未开始',
@@ -136,31 +138,32 @@ Page({
         showCancel: false
       })
     } else {
+      // 添加记录
+      let data1 = {
+        "courseId": e.currentTarget.dataset.courseid,
+        "lessonId": e.currentTarget.dataset.lessonid
+      }
+      addUserwatch('userwatch', data1).then(res => {
+        console.log('记录一次课时观看记录', res);
+      })
       if (abc.obj.hasOwnProperty('lessonContentUrl')) {
         console.log('播放视频')
         //播放视频
         this.setData({
           isVideo: true,
           videoUrl: abc.lessonContentUrl,
-          subFlag:'0'
+          subFlag: '0'
         })
       } else {
         console.log('跳转视频号')
         this.setData({
           isVideo: false,
-          subFlag:'1'
+          subFlag: '1'
         })
         console.log('已跳转视频号')
       }
     }
     console.log('点击课时', e.currentTarget);
-    let data1 = {
-      "courseId": e.currentTarget.dataset.courseid,
-      "lessonId": e.currentTarget.dataset.lessonid
-    }
-    addUserwatch('userwatch', data1).then(res => {
-      console.log('记录一次课时观看记录', res);
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
