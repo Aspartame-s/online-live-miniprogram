@@ -30,7 +30,7 @@
       isVideo="{{isvideo}}"
       videoUrl="{{videourl}}"
       liveList="{{liveList}}"
-      imgUrl="{{item.lessonCoverUrl}}" 
+      imgUrl="{{item.courseCoverUrl}}" 
       lessonName="{{item.courseName}}" 
       shortDec="{{item.lessonShortDesc}}"
       teacherImg="{{item.teacherAvatarUrl}}"
