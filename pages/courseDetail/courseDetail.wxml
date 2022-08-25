@@ -40,15 +40,18 @@
         <block wx:if="{{!isNull && isCourse}}">
          <view wx:for="{{courseList}}" wx:key="{{item.id}}" class="list">
           <liveListH id="zizujian" bindtap="addHistory" data-courseid="{{item.courseId}}" data-lessonid="{{item.id}}"
-          isVideo="{{true}}"
+          data-obj="{{item}}"
+          data-time="{{item.lessonElapsedTime}}"
+          data-url="{{item.lessonContentUrl}}"
+          isVideo="{{isVideo}}"
           liveList="{{courseList}}" 
           imgUrl="{{item.lessonCoverUrl}}"
           lessonName="{{item.lessonName}}"
           shortDec="{{item.lessonShortDesc}}"
           isShowTeacher="false"
           lessonViewCount="{{item.lessonViewCount}}"
-          videoUrl="{{item.lessonContentUrl}}"
-          subFlag="{{item.subFlag}}"
+          videoUrl="{{videoUrl}}"
+          subFlag="{{subFlag}}"
           ></liveListH>
          </view>
         </block>

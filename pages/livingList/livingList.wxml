@@ -8,6 +8,9 @@
   <view class="main">
     <view class="list" wx:if="{{position=='index'}}" wx:for="{{dataList}}" wx:key="{{item.id}}">
       <liveListW liveList="{{dataList}}" 
+      courseId="{{item.courseId}}"
+      lessonId="{{item.lessonId}}"
+      liveId="{{item.id}}"
       isHuifangHead="{{true}}"
       isHuifang="{{true}}"
       imgUrl="{{item.liveVideoCoverUrl}}"

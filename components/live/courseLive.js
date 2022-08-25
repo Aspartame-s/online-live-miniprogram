@@ -144,7 +144,8 @@ Component({
       console.log(e.currentTarget);
       // 添加一次直播
       let msg = {
-        courseId: e.currentTarget.dataset.courseId
+        "courseId": e.currentTarget.dataset.courseId,
+        "lessonId":e.currentTarget.dataset.obj.id
       }
       addUserwatch('/userwatch', msg).then(res => {
         console.log('添加一次直播记录', res);

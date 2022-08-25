@@ -40,8 +40,10 @@ Component({
       type: Number,
       value: '0'
     },
-    // 格式化之后的时间
-    times:''
+    times:{
+      type:String,
+      value:''
+    }
   },
   observers: {
     'liveList': function () {
@@ -62,8 +64,8 @@ Component({
    */
   methods: {
     // 点击播放按钮
-    bofang: function () {
-      // console.log(this.properties.subFlag);
+    bofang: function (e) {
+      console.log(this.properties.liveList);
       if (this.properties.subFlag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({

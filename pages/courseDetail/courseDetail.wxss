@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 168rpx;
+  top: 130rpx;
   left: 28rpx;
   z-index: 11;
   overflow: hidden;
@@ -67,7 +67,7 @@
   color: #666666;
 }
 .courseContent{
-  margin-top: 140rpx;
+  margin-top: 90rpx;
 }
 /* 课程介绍--老师信息 */
 .mainContent {
