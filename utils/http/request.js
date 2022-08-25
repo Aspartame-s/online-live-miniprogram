@@ -9,10 +9,10 @@ let postHeader = {
   // 'content-type': 'application/json',
   'Content-Length': 0,
   'enableCache': true,
-  'jwt': subDomain
+  // 'jwt': subDomain
 }
 let getHeader ={
-  'jwt': subDomain
+  // 'jwt': subDomain
 }
 // let postHeader = {
 //   'content-type': 'application/x-www-form-urlencoded'

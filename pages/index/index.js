@@ -37,6 +37,8 @@ Page({
         userLogin('wx/user/login?code=' + res.code).then(res => {
           console.log('登录后端返回', res);
           wx.setStorageSync('sessionId', res.data.sessionId)
+          wx.setStorageSync('sessionKey',res.data.session.sessionKey)
+          wx.setStorageSync('openid',res.data.session.openid)
           wx.setStorageSync('jwt', res.data.jwt)
           // 昵称
           wx.setStorageSync('nickName', res.data.wxAuthUser.nickName)
@@ -47,6 +49,7 @@ Page({
           }
           // 存储手机号
           if (res.data.wxAuthUser.hasOwnProperty('phone')) {
+            console.log('现在有手机号，button应该不显示')
             wx.setStorageSync('phone', res.data.wxAuthUser.phone);
             this.setData({
               hasPhone:true
@@ -135,15 +138,15 @@ Page({
   },
   // 跳转直播回放列表
   intoHistory: function (e) {
-    console.log('直播回放', e.currentTarget);
-    // 记录一次观看历史记录
-    let data1 = {
-      "courseId": e.currentTarget.dataset.courseid,
-      "lessonId": e.currentTarget.dataset.lessonid
-    }
-    addUserwatch('userwatch', data1).then(res => {
-      console.log('添加一次直播', res);
-    })
+    // console.log('直播回放', e.currentTarget);
+    // // 记录一次观看历史记录
+    // let data1 = {
+    //   "courseId": e.currentTarget.dataset.courseid,
+    //   "lessonId": e.currentTarget.dataset.lessonid
+    // }
+    // addUserwatch('userwatch', data1).then(res => {
+    //   console.log('添加一次直播', res);
+    // })
   },
   onShow() {
     // 设置当前在哪个页面
@@ -155,16 +158,30 @@ Page({
     }
   },
   getPhoneNumber(e) {
-    const encryptedData = encodeURIComponent(e.detail.encryptedData)
-    const iv = encodeURIComponent(e.detail.iv)
-    const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
-    console.log(wx.getStorageSync('phone'));
-    userPhone(`wx/user/phone?sessionId=${sessionId}&encryptedData=${encryptedData}&iv=${iv}`).then(rrr => {
-      console.log('获取用户手机号',rrr)
-      wx.setStorageSync('phone', res.data.wxAuthUser.phone);
+    // this.setData({
+    //   hasPhone: true
+    // })
+    console.log(wx.getStorageSync('phone') == '');
+    if(wx.getStorageSync('phone')) {
+      console.log('现在有手机号，button应该不显示2')
       this.setData({
         hasPhone: true
       })
+      return
+    }
+    const encryptedData = encodeURIComponent(e.detail.encryptedData)
+    const iv = encodeURIComponent(e.detail.iv)
+    const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+    const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
+    console.log(sessionKey)
+    const openid = encodeURIComponent(wx.getStorageSync('openid'))
+    userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+      console.log('获取用户手机号',rrr)
+      wx.setStorageSync('phone', rrr.data.wxAuthUser.phone);
+      this.setData({
+        hasPhone: true
+      })
+      console.log('已设置button隐藏')
       this.onLoad();
     })
   },
@@ -181,13 +198,14 @@ Page({
       "lessonId": e.currentTarget.dataset.lessonid,
       "liveId":e.currentTarget.dataset.liveid,
     }
-    addUserwatch('userwatch', data2).then(res => {
-      console.log('添加一次直播', res);
-    })
+    
     wx.openChannelsLive({
       finderUserName: 'sphfYruhmZYLxXt',
       success:res=>{
         console.log('成功打开',res);
+        addUserwatch('userwatch', data2).then(res => {
+          console.log('添加一次直播', res);
+        })
       },
       fail:res=>{
         console.log('打开失败',res);
