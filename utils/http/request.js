@@ -1,7 +1,7 @@
 // 引入env中的url
 const {
   baseUrl
-} = require('./env.js').test;
+} = require('./env.js').prod;
 var app = getApp()
 // 专属域名
 let subDomain = wx.getStorageSync('jwt')
@@ -34,7 +34,6 @@ module.exports = {
         mask: true
       })
       app.globalData.isloading = true;
-      // console.log(_url);
       wx.request({
         url: _url,
         data: data,

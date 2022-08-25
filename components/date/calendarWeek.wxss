@@ -17,6 +17,7 @@
 /* 当前日期 */
 .date-current {
   /* width: 160rpx; */
+  width: auto;
   height: 56rpx;
   font-size: 20px;
   font-weight: 500;
@@ -26,6 +27,20 @@
   left: 52rpx;
   top: 196rpx;
   letter-spacing: 3rpx;
+  display: flex;
+  align-items: center;
+}
+
+.back-today {
+  width: 112rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333333;
+  border: 1rpx solid #999999;
+  border-radius: 24rpx;
+  margin-left: 16rpx;
 }
 
 .date-choose-swiper {
@@ -184,6 +199,7 @@
   width: 82rpx;
   height: 140rpx;
   margin: 0 10rpx;
+  position: relative;
   /* background-color: yellow; */
   display:inline-block;
   /* flex: 0 0 auto; */
@@ -269,4 +285,14 @@
     0%{ opacity: 1; }
     50% { opacity: 0.6; }
     100% { opacity: .2; }
+    }
+
+    .hasDataIcon {
+      width: 56rpx;
+      height: 56rpx;
+      position: absolute;
+      bottom: 6rpx;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
     }

@@ -1,6 +1,6 @@
 var utils = require('../../utils/util')
-import { getScopeArr, getDay,  } from '../../utils/getDate.js'
-import {byDate} from '../../utils/http/api'
+import { getScopeArr, getDay, getCurrentDate  } from '../../utils/getDate.js'
+const { byDate } = require('../../utils/http/api')
 Component({
   /**
    * 组件的属性列表
@@ -20,13 +20,15 @@ Component({
     dateMonth: '1月', // 正显示的月份
     dateDay: '01日',
     dateListArray: ['日', '一', '二', '三', '四', '五', '六'],
-    cur: '',//显示在页面的日期
+    cur: '今日',//显示在页面的日期
     //日期组件数组
     calendarList: [],
     scrollLeft: '',
     currentDay: null,
     flag: true,
-    activeIsShow: false
+    activeIsShow: false,
+    hasDataList: [],
+    todayShow: false
   },
   created: function () {
     // this.setData({
@@ -35,7 +37,6 @@ Component({
     // })
   },
   ready: function () {
-
     const arr = getScopeArr()
     const arr1 = []
     arr.forEach(item => {
@@ -49,35 +50,54 @@ Component({
         }
       )
     })
-    this.setData({
-      calendarList: arr1,
-      currentDay: getDay()
-    })
-    //获取dom宽度
-    this.createSelectorQuery().in(this).select('#the-id').boundingClientRect(res => {
-      console.log(res)
-      const scrollLeft = 14 * res.width + 25
+     byDate('lesson/by-date').then(res => {
+      const hasDataList = res.data
       this.setData({
-        scrollLeft
+        hasDataList
       })
-    }).exec()
-
-    var today = utils.formatTime2(new Date());
-    this.setData({
-      today,
-    });
-    var d = new Date();
-    this.initDate(-5, 2, d); // 日历组件程序  -4左表示过去4周  右1表示过去一周 
+      hasDataList.forEach(item => {
+        arr1.forEach(self => {
+            if(item.lessonStartDate == self.date) {
+              self.has = 1
+            }
+        })
+      })
+      this.setData({
+        calendarList: arr1,
+        currentDay: getDay()
+      })
+      this.createSelectorQuery().in(this).select('#the-id').boundingClientRect(res => {
+        const scrollLeft = 14 * res.width + 25
+        this.setData({
+          scrollLeft
+        })
+      }).exec()
+  
+      var today = utils.formatTime2(new Date());
+      this.setData({
+        today,
+      });
+      var d = new Date();
+      this.initDate(-5, 2, d); // 日历组件程序  -4左表示过去4周  右1表示过去一周 
+    })
+    
+    //获取dom宽度
+    
   },
   // 将当天的日期规范显示在页面
   observers: {
     'dateCurrentStr': function (dateCurrentStr) {
       // 在 dateCurrentStr 被设置时，执行这个函数
       let arr = dateCurrentStr.split('-');
-      // console.log(arr);
-      this.setData({
-        cur: arr[1] + '月' + arr[2] + '日'
-      })
+      const today = getCurrentDate()
+      if(today == dateCurrentStr) {
+        return
+      }else {
+        this.setData({
+          cur: arr[1] + '月' + arr[2] + '日'
+        })
+      }
+     
     }
   },
   
@@ -86,26 +106,48 @@ Component({
    */
   methods: {
     click(e) {
-      console.log(e)
       const str = e.currentTarget.dataset.date
+      const today = getCurrentDate()
+     
       this.setData({
         dateCurrentStr: str,
-        currentDay: e.currentTarget.dataset.curdate
+        currentDay: e.currentTarget.dataset.curdate,
+        todayShow: true
       })
+      if(str == today) {
+        this.setData({
+          cur: '今日',
+          todayShow: false
+        })
+      }
       this.triggerEvent('mydata', {
         data: str
       })
     },
-
+    backToday() {
+      this.createSelectorQuery().in(this).select('#the-id').boundingClientRect(res => {
+        const scrollLeft = 14 * res.width + 25
+        this.setData({
+          scrollLeft
+        })
+      }).exec()
+      const today = getCurrentDate()
+      this.setData({
+        // dateCurrentStr: today,
+        currentDay: getDay(),
+        cur: '今日',
+        todayShow: false
+      })
+      this.triggerEvent('mydata', {
+        data: today
+      })
+    },
     //滑动开始
     scrollStart(e) {
-      //  console.log(e)
        if(e) {
-        //  console.log('滑动开始')
          this.setData({
            activeIsShow: true
          })
-        //  console.log(this.data.activeIsShow)
        }
       let _this =this;
         if (this.scrollEndTimer) {
@@ -113,18 +155,15 @@ Component({
             this.scrollEndTimer =null;
         }
         this.scrollEndTimer = setTimeout(function () {
-            // console.log('滑动结束');
             _this.setData({
               activeIsShow: false
             })
-            // console.log(_this.data.activeIsShow)
     
         }, 500);
     },
 
     //滑动结束
     scrollEnd(e) {
-      console.log(e)
     },
     // 日历组件部分
     initDate(left, right, d) {
@@ -251,7 +290,6 @@ Component({
     // 点击日历某日
     chooseDate(e) {
       var str = e.currentTarget.id;
-      console.log(str)
       this.setData({
         dateCurrentStr: str
       });

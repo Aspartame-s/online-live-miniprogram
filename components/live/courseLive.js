@@ -151,7 +151,7 @@ Component({
       })
       // 
       const data = e.currentTarget.dataset
-      if (data.time > 0) {
+      if (data.time < 0) {
         console.log('还未开始')
         wx.showModal({
           title: '课程还未开始',

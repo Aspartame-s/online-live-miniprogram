@@ -8,6 +8,19 @@ export const getDay = () => {
   return new Date().getDate() 
 }
 
+//获取今天日期
+export const getCurrentDate = () => {
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth() + 1
+    const date = new Date().getDate()
+    return year + '-' + Appendzero(month) + '-' + Appendzero(date)
+}
+
+export const  Appendzero = (obj) => {
+    if(obj<10) return "0" +""+ obj;
+    else return obj;
+}
+
 //获取前后两周数组
 export const getScopeArr = () => {
   const year = new Date().getFullYear()

@@ -113,6 +113,7 @@ Page({
   },
   mydata(e) {
     //可获取日历点击事件
+    console.log(e)
     let data = e.detail.data
     this.setData({
       clickDate: data
