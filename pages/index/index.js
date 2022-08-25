@@ -2,6 +2,7 @@
 const app = getApp()
 import * as watch from "../../utils/watch";
 const { getBanner, getLiving, getlivingHistory, userLogin, addUserwatch,userPhone } = require('../../utils/http/api')
+import { getDay } from '../../utils/getDate'
 Page({
   data: {
     imgbaseUrl: app.globalData.imgbaseUrl,
@@ -27,7 +28,8 @@ Page({
     // 视频号feedId
     feedId:'',
     // 是否有手机号
-    hasPhone:false
+    hasPhone:false,
+    currentDay: null
   },
   onLoad() {
     wx.login({
@@ -97,6 +99,12 @@ Page({
       console.log(this.data.livingHistory);
     })
   },
+  onHide() {
+    console.log('今天')
+    this.setData({
+      currentDay: getDay()
+    })
+  },
   // 监听
   watch: {
     // 监听当前点击的是直播还是直播回放
@@ -158,9 +166,10 @@ Page({
     }
   },
   getPhoneNumber(e) {
-    // this.setData({
-    //   hasPhone: true
-    // })
+    console.log(e)
+   if(!e.detail.cloudID) {
+     return
+   }
     console.log(wx.getStorageSync('phone') == '');
     if(wx.getStorageSync('phone')) {
       console.log('现在有手机号，button应该不显示2')
@@ -177,7 +186,7 @@ Page({
     const openid = encodeURIComponent(wx.getStorageSync('openid'))
     userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
       console.log('获取用户手机号',rrr)
-      wx.setStorageSync('phone', rrr.data.wxAuthUser.phone);
+      wx.setStorageSync('phone', rrr.data);
       this.setData({
         hasPhone: true
       })

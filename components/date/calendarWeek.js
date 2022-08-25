@@ -6,7 +6,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    // currentDay: String
   },
   externalClasses: ['date-position'],
   /**
@@ -29,7 +29,10 @@ Component({
     activeIsShow: false
   },
   created: function () {
-  
+    // this.setData({
+    //   calendarList: arr1,
+    //   currentDay: getDay()
+    // })
   },
   ready: function () {
 

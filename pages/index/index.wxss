@@ -178,7 +178,7 @@
   width: 680rpx;
   height: 280rpx;
   opacity: 0;
-  z-index: 2;
+  z-index: 99;
   position: absolute;
   /* border: 1px solid #000; */
 }
