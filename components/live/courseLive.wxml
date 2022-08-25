@@ -11,7 +11,7 @@
             videoUrl="{{videourl}}"
             data-id="{{itme.courseId}}"
             liveList="{{liveList}}" 
-            imgUrl="{{item.lessonCoverUrl}}" 
+            imgUrl="{{item.courseCoverUrl}}" 
             lessonName="{{item.courseName}}" 
             shortDec="{{item.lessonShortDesc}}"
             teacherImg="{{item.teacherAvatarUrl}}"
@@ -30,7 +30,7 @@
       isVideo="{{isvideo}}"
       videoUrl="{{videourl}}"
       liveList="{{liveList}}"
-      imgUrl="{{item.lessonCoverUrl}}" 
+      imgUrl="{{item.courseCoverUrl}}" 
       lessonName="{{item.courseName}}" 
       shortDec="{{item.lessonShortDesc}}"
       teacherImg="{{item.teacherAvatarUrl}}"
@@ -39,6 +39,8 @@
       lessonElapsedTime="{{item.lessonElapsedTime}}"
       isHuifangHead="{{!isvideo}}"
       times="{{times[index]}}"
+      isHuifangHead="{{true}}"
+      subflag="{{item.subFlag}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

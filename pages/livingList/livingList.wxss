@@ -31,7 +31,8 @@
 
 .main {
   width: 750rpx;
-  height: 1624rpx;
+  height: auto;
+  padding-bottom: 20rpx;
   background: #F8F8F8;
 }
 /* 回放列表 */
