@@ -8,7 +8,7 @@ Page({
    */
   data: {
     // 图片基路径
-    imgbaseUrl:app.globalData.imgbaseUrl,
+    imgbaseUrl: app.globalData.imgbaseUrl,
     // 来源位置
     position: '',
     // 头部
@@ -26,7 +26,9 @@ Page({
     // 标题
     title: '',
     // 正文
-    content: ''
+    content: '',
+    // 是否有下面的
+    isEmpty: true
   },
 
   /**
@@ -48,6 +50,9 @@ Page({
             dataList: res.data.content,
             isNull: false
           })
+          if (this.data.dataList.length < this.res.data.numberOfElements) {
+            
+          }
         } else {
           this.setData({
             dataList: [],
@@ -63,11 +68,11 @@ Page({
           // 赋值
           this.setData({
             historyList: res.data.content,
-            isNull:false
+            isNull: false
           })
-        }else{
+        } else {
           this.setData({
-            isNull:true
+            isNull: true
           })
         }
       })
@@ -122,7 +127,34 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    // getlivingHistory()
+    if (this.data.isEmpty) {
+      this.setData({
+        pageNo: this.data.pageNo + 1
+      })
+      console.log(this.data.pageNo);
+      let a = this.data.dataList;
+      // 下拉加载
+      getlivingHistory('live-video/page/playback?pageNo=' + this.data.pageNo + '&pageSize=4').then(res => {
+        console.log('直播回放列表', res);
+        if (!res.data.empty) {
+          this.setData({
+            isEmpty: true
+          })
+          a.push(...res.data.content)
+          console.log(a);
+          this.setData({
+            dataList: a,
+            isNull: false
+          })
+        } else {
+          this.setData({
+            isEmpty: false
+          })
+        }
+      })
+    } else {
+      return;
+    }
   },
 
   /**

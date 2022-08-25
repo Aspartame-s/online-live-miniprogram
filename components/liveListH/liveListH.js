@@ -38,7 +38,7 @@ Component({
     // 判断是视频号还是视频
     subFlag: {
       type: Number,
-      value: 0
+      value: '0'
     },
     // 格式化之后的时间
     times:''
@@ -63,7 +63,8 @@ Component({
   methods: {
     // 点击播放按钮
     bofang: function () {
-      if (this.data.subFlag == 1) {
+      console.log(this.properties.subFlag);
+      if (this.properties.subFlag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({
           finderUserName: 'sphfYruhmZYLxXt',
@@ -74,7 +75,7 @@ Component({
             console.log('打开失败', res);
           }
         })
-      } else if (this.data.subFlag == 0) {
+      } else{
         // 视频播放
         this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
         this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。

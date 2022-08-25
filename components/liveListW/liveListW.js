@@ -56,7 +56,9 @@ Component({
       value: false
     },
     // 格式化好的时间
-    times:''
+    times:'',
+    // 判断是视频号还是视频
+    subflag:''
   },
 
   /**
@@ -78,13 +80,28 @@ Component({
       console.log('直播回放', e.currentTarget);
     },
     bofang: function () {
-      this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
-      this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
-        direction: 90						// 屏幕逆时针90度
-      });
-      this.setData({
-        iscontrols: true
-      })
+      console.log(this.properties.subflag);
+      if (this.properties.subflag == '1') {
+        // 订阅号跳转
+        wx.openChannelsLive({
+          finderUserName: 'sphfYruhmZYLxXt',
+          success: res => {
+            console.log('成功打开', res);
+          },
+          fail: res => {
+            console.log('打开失败', res);
+          }
+        })
+      } else if (this.properties.subflag == '0') {
+        // 视频播放
+        this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
+        this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
+          direction: 90						// 屏幕逆时针90度
+        });
+        this.setData({
+          iscontrols: true
+        })
+      }
     },
     // 视频结束后自动退出全屏
     endAction: function () {

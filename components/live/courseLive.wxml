@@ -39,6 +39,8 @@
       lessonElapsedTime="{{item.lessonElapsedTime}}"
       isHuifangHead="{{!isvideo}}"
       times="{{times[index]}}"
+      isHuifangHead="{{true}}"
+      subflag="{{item.subFlag}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

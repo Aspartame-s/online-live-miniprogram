@@ -48,6 +48,9 @@ Page({
                 videoUrl: res.data.courseIntroductionVideoUrl,
                 title: res.data.courseName,
                 courseDec: res.data.courseShortDesc,
+                techerIntroUrl: res.data.teacherIntroductionImgUrl,
+                isCourse:false,
+                isNull:false
             })
             if (res.data.lessonBoPage.empty) {
                 this.setData({
@@ -56,7 +59,6 @@ Page({
             } else {
                 this.setData({
                     courseList: res.data.lessonBoPage.content,
-                    techerIntroUrl: res.data.lessonBoPage.content[0].teacherIntroductionImgUrl
                 })
             }
         })
