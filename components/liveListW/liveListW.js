@@ -55,6 +55,8 @@ Component({
       type: Boolean,
       value: false
     },
+    // 格式化好的时间
+    times:''
   },
 
   /**

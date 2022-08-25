@@ -38,6 +38,7 @@
       isShowTeacher="{{true}}" 
       lessonElapsedTime="{{item.lessonElapsedTime}}"
       isHuifangHead="{{!isvideo}}"
+      times="{{times[index]}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

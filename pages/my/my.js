@@ -127,7 +127,7 @@ Page({
   // 点击版本信息
   showVersion(){
     wx.showModal({
-      title: '苏e直播小程序',
+      title: '苏e学堂小程序',
       content:'1.0',
       showCancel:false
     })
@@ -135,7 +135,7 @@ Page({
   // 关于我们
   showAbout(){
     wx.showModal({
-      title: '苏e直播小程序',
+      title: '苏e学堂',
       content:'2022年8月，江苏省电化教育馆推出的非学科类公益直播“苏e直播”上线啦!美术、音乐、书法、舞蹈、表演、手工、甜品制作、主持、体育……。“苏e直播”坚持公益属性，通过一节节超嗨直播，一门门好玩的课程，结合“双减”、课后服务、城乡义务教育均衡，以新媒体、新技术为小朋友们提供优质数字教育资源。',
       showCancel:false
     })

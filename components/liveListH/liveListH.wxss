@@ -13,7 +13,22 @@
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translate3d(0, 0, 0);
 }
-
+.time {
+  width: 80rpx;
+  height: 40rpx;
+  background: #FD9770;
+  border-radius: 4px 4px 4px 4px;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
 .coverImg {
   width: 334rpx;
   height: 208rpx;

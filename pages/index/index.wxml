@@ -2,8 +2,8 @@
   <!-- https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/static/img/beijingtu.png -->
   <image src='{{imgbaseUrl}}/img/beijingtu.png' class="date_img"></image>
   <calendarMonth date-position="date-position" bindmydata="mydata"></calendarMonth>
-  <!-- <view class="date-choose shrink border-bottom10 date-position"></view> -->
-  <image src='{{imgbaseUrl}}/img/suezhiboLOGO.png' class="logo"></image>
+  <!-- <view class="date-choose shrink border-bottom10 date-position"></view> {{imgbaseUrl}}/img/suezhiboLOGO.png-->
+  <image src="/static/img/suezhiboLOGO.png" class="logo"></image>
   <image src='{{imgbaseUrl}}/img/kechengbiao.png' class="course"></image>
   <image src='{{imgbaseUrl}}/icon/shortlink1.png' class="link link-1"></image>
   <image src='{{imgbaseUrl}}/icon/shortlink1.png' class="link link-2"></image>

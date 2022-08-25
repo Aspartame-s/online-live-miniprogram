@@ -2,11 +2,21 @@
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
-  var day = date.getDate() 
+  var day = date.getDate()
   var hour = date.getHours()
   var minute = date.getMinutes()
   var second = date.getSeconds()  
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+// 时间格式转换 hh-mm
+function formhhmm(date){
+  let a = new Date(date)
+  let hour = a.getHours()
+  let  minute = a.getMinutes()
+  let b = toString(hour) + ':' + toString(minute);
+  // 20:00
+  console.log(minute);
+  return b
 }
 // 时间格式转换 yyyy－mm－dd
 function formatTime2(date) {
@@ -50,8 +60,6 @@ function Type(obj) {
   return typeStr.substr(0, typeStr.length - 1).toLowerCase();
 }
 
-
-
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
@@ -60,4 +68,5 @@ module.exports = {
   FirstDayInThisWeek: FirstDayInThisWeek,
   type: Type,
   addZero: formatNumber,
+  formhhmm:formhhmm
 }
