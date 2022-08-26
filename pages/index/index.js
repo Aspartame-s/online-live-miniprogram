@@ -218,10 +218,12 @@ Page({
     wx.openChannelsLive({
       finderUserName: 'sphfYruhmZYLxXt',
       success:res=>{
-        console.log('成功打开',res);
-        addUserwatch('userwatch', data2).then(res => {
-          console.log('添加一次直播', res);
-        })
+        // console.log('成功打开',res);
+        console.log('我草泥马')
+        // addUserwatch('userwatch', data2).then(res => {
+        //   console.log('添加一次直播', res);
+        //   console.log('添加次数成功')
+        // })
       },
       fail:res=>{
         console.log('打开失败',res);

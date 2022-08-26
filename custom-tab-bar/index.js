@@ -55,6 +55,7 @@ Component({
       const data = e.currentTarget.dataset
       const url = data.path
       // console.log('tabbar',data);
+      // wx.switchTab({ url })
       wx.reLaunch({ url })
       // this.setData({
       //   selected: data.index

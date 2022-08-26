@@ -29,7 +29,7 @@
       data-url="{{item.lessonContentUrl}}"
       data-obj="{{item}}"
       isVideo="{{isvideo}}"
-      videoUrl="{{videourl}}"
+      videoUrl="{{item.lessonContentUrl}}"
       liveList="{{liveList}}"
       imgUrl="{{item.lessonCoverUrl}}" 
       lessonName="{{item.courseName}}" 

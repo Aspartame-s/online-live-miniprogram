@@ -65,20 +65,24 @@ Component({
       type: String,
       value: ''
     },
-    liveId:{
-      type:String,
-      value:''
+    liveId: {
+      type: String,
+      value: ''
     },
     // 格式化好的时间
-    times:{
-      type:String,
-      value:''
+    times: {
+      type: String,
+      value: ''
     },
     // 判断是视频号还是视频
-    subflag:{
-      type:String || Number,
-      value:"0"
+    subflag: {
+      type: String || Number,
+      value: "0"
     },
+    obj: {
+      type: Object,
+      value: {}
+    }
 
   },
 
@@ -119,6 +123,18 @@ Component({
         wx.openChannelsLive({
           finderUserName: 'sphfYruhmZYLxXt',
           success: res => {
+            const obj = this.properties.obj
+            // console.log('obj', this.properties.obj)
+            let data = {
+              "courseId": obj.courseid,
+              "lessonId": obj.lessonid,
+              "liveId": obj.id,
+            }
+            addUserwatch('userwatch', data).then(res => {
+              console.log('添加一次直播', res);
+              console.log('添加次数成功')
+            })
+            console.log('wocao')
             console.log('成功打开', res);
           },
           fail: res => {
@@ -131,6 +147,14 @@ Component({
         this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
           direction: 90						// 屏幕逆时针90度
         });
+        let data1 = {
+          "courseId": this.properties.courseId,
+          "lessonId": this.properties.lessonId,
+          // "liveId": this.properties.liveId
+        }
+        addUserwatch('userwatch', data1).then(res => {
+          console.log('添加一次直播', res);
+        })
         this.setData({
           iscontrols: true
         })
@@ -144,20 +168,16 @@ Component({
     // 视频退出全屏
     screenchange: function (e) {
       console.log(e.currentTarget);
-      let data1 = {
-        "courseId": this.properties.courseId,
-        "lessonId": this.properties.lessonId,
-        "liveId":this.properties.liveId
-      }
+      console.log('退出全屏')
+      
       let videoplay = wx.createVideoContext('myVideo', this)
-      console.log('userwatch', data1);
-      addUserwatch('userwatch', data1).then(res => {
-        console.log('添加一次直播', res);
-      })
+      // console.log('userwatch', data1);
+     
       if (e.detail.fullScreen) {
         videoplay.play()
       } else {
         videoplay.pause()
+       
       }
     }
   }

@@ -60,24 +60,12 @@ Page({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName')
     })
-    // 我的课程数量
-    myCourse('userwatch/courses').then(res => {
-      console.log('我的课程', res)
-      this.setData({
-        myCourse: res.data
-      })
-    })
-    // 我的观看次数
-    viewCount('userwatch/counts').then(res => {
-      console.log('观看次数', res)
-      this.setData({
-        viewNum: res.data
-      })
-    })
+    
     this.setData({
       sessionId: wx.getStorageSync('sessionId')
     })
   },
+
   // 跳转列表
   getMore: function () {
     wx.navigateTo({
@@ -169,6 +157,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 我的课程数量
+    myCourse('userwatch/courses').then(res => {
+      console.log('我的课程', res)
+      this.setData({
+        myCourse: res.data
+      })
+    })
+    // 我的观看次数
+    viewCount('userwatch/counts').then(res => {
+      console.log('观看次数', res)
+      this.setData({
+        viewNum: res.data
+      })
+    })
     // 设置当前在哪个页面
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
@@ -176,6 +178,7 @@ Page({
         selected: 3 // 根据tab的索引值设置
       })
     }
+
   },
 
   /**
