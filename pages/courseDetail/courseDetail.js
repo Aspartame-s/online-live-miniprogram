@@ -30,7 +30,7 @@ Page({
     // 是否拥有手机号
     hasPhone: false,
     // 是否跳转视频好=号 0==视频 1==视频号
-    subFlag: '0'
+    subFlag: null
   },
 
   /**
@@ -132,11 +132,11 @@ Page({
     const abc = e.currentTarget.dataset
     console.log('课程详情判断',abc);
     if (abc.time < 0) {
-      wx.showModal({
-        title: '课程还未开始',
-        content: '请稍后观看',
-        showCancel: false
-      })
+    //   wx.showModal({
+    //     title: '课程还未开始',
+    //     content: '请稍后观看',
+    //     showCancel: false
+    //   })
     } else {
       // 添加记录
       let data1 = {
@@ -163,7 +163,7 @@ Page({
         console.log('已跳转视频号')
       }
     }
-    console.log('点击课时', e.currentTarget);
+    // console.log('点击课时', e.currentTarget);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

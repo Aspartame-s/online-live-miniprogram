@@ -147,6 +147,7 @@ Page({
   },
   // 跳转直播回放列表
   intoHistory: function (e) {
+    console.log(e.currentTarget.dataset.obj)
     // console.log('直播回放', e.currentTarget);
     // // 记录一次观看历史记录
     // let data1 = {

@@ -44,6 +44,7 @@
           data-time="{{item.lessonElapsedTime}}"
           data-url="{{item.lessonContentUrl}}"
           isVideo="{{true}}"
+          obj="{{item}}"
           liveList="{{courseList}}" 
           imgUrl="{{item.lessonCoverUrl}}"
           lessonName="{{item.lessonName}}"
@@ -51,7 +52,7 @@
           isShowTeacher="false"
           lessonViewCount="{{item.lessonViewCount}}"
           videoUrl="{{videoUrl}}"
-          subFlag="{{subFlag}}"
+          subFlag="{{item.subFlag}}"
           ></liveListH>
          </view>
         </block>

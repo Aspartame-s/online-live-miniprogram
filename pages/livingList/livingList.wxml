@@ -14,12 +14,13 @@
       isHuifangHead="{{true}}"
       isHuifang="{{true}}"
       imgUrl="{{item.liveVideoCoverUrl}}"
-      lessonName="{{item.courseName}}"
-      shortDec="{{item.liveVideoName}}"
+      lessonName="{{item.liveVideoName}}"
+      shortDec="{{item.liveVideoShortDesc}}"
       teacherImg="{{item.teacherIntroductionImgUrl}}"
       teacherName="{{item.teacherName}}"
       isVideo="{{true}}"
       videoUrl="{{item.liveVideoContentUrl}}"
+      subflag="{{item.subFlag}}"
       ></liveListW>
     </view>
     <!-- 历史回放列表 -->

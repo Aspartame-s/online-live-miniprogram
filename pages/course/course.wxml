@@ -32,7 +32,6 @@
         imgUrl="{{item.courseCoverUrl}}"
         lessonName="{{item.courseName}}"
         shortDec="{{item.courseShortDesc}}"
-        shortDec="{{item.courseShortDesc}}"
         teacherImg="{{item.teacherAvatarUrl}}"
         teacherName="{{item.teacherName}}"
         lessonViewCount="{{item.subsStudentCount}}"

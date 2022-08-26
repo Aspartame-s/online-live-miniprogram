@@ -104,16 +104,17 @@ Component({
       console.log('我是子组件')
     },
     bofang: function () {
-      console.log('bofang')
-      this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
-      this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
-        direction: 90						// 屏幕逆时针90度
-      });
-      this.setData({
-        iscontrols: true
-      })
+      console.log(this.data.subflag)
+      console.log(this.properties.subflag)
+      // this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
+      // this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
+      //   direction: 90						// 屏幕逆时针90度
+      // });
+      // this.setData({
+      //   iscontrols: true
+      // })
       // console.log(this.properties.subflag);
-      if (this.properties.subflag == '1') {
+      if (this.data.subflag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({
           finderUserName: 'sphfYruhmZYLxXt',
@@ -124,7 +125,7 @@ Component({
             console.log('打开失败', res);
           }
         })
-      } else if (this.properties.subflag == '0') {
+      } else if (this.data.subflag == '0') {
         // 视频播放
         this.videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
         this.videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。

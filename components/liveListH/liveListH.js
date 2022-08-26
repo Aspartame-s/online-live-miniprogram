@@ -37,12 +37,16 @@ Component({
     videoUrl: String,
     // 判断是视频号还是视频
     subFlag: {
-      type: Number,
+      type: String,
       value: '0'
     },
     times:{
       type:String,
       value:''
+    },
+    obj: {
+      type: Object,
+      value: {}
     }
   },
   observers: {
@@ -65,7 +69,19 @@ Component({
   methods: {
     // 点击播放按钮
     bofang: function (e) {
-      console.log(this.properties.liveList);
+      console.log(this.properties.obj);
+      const obj = this.properties.obj
+      // if(obj) {
+        if(obj.lessonElapsedTime < 0) {
+          wx.showModal({
+            title: '课程还未开始',
+            content: '请稍后观看',
+            showCancel: false
+          })
+          return
+        }
+      // }
+      
       if (this.properties.subFlag == '1') {
         // 订阅号跳转
         wx.openChannelsLive({

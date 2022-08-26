@@ -1,7 +1,7 @@
 // 引入env中的url
 const {
   baseUrl
-} = require('./env.js').prod;
+} = require('./env.js').test;
 var app = getApp()
 // 专属域名
 let subDomain = wx.getStorageSync('jwt')
