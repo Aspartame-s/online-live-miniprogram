@@ -32,6 +32,7 @@ Page({
     currentDay: null
   },
   onLoad() {
+    wx.setStorageSync('phone', '');
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -147,7 +148,10 @@ Page({
   },
   // 跳转直播回放列表
   intoHistory: function (e) {
-    console.log(e.currentTarget.dataset.obj)
+    // this.setData({
+    //   reqObj: e.currentTarget.dataset.obj
+    // })
+    // console.log(e.currentTarget.dataset.obj)
     // console.log('直播回放', e.currentTarget);
     // // 记录一次观看历史记录
     // let data1 = {
@@ -168,8 +172,14 @@ Page({
     }
   },
   async getPhoneNumber(e) {
-    console.log(e)
+    // console.log(e)
+    // console.log(e.currentTarget.dataset.obj)
    if(!e.detail.cloudID) {
+    // this.setData({
+    //   reqObj: e.currentTarget.dataset.obj
+    // })
+    // var header = this.selectComponent("#zizujian")
+    // header.bofang()
      return
    }else {
     const encryptedData = encodeURIComponent(e.detail.encryptedData)
@@ -181,11 +191,13 @@ Page({
       console.log('获取用户手机号',rrr)
       wx.setStorageSync('phone', rrr.data);
       this.setData({
-        hasPhone: true
+        hasPhone: true,
+        reqObj: e.currentTarget.dataset.obj
       })
       console.log('已设置button隐藏')
       // this.onLoad();
     })
+    // debugger
     var header = this.selectComponent("#zizujian")
     header.bofang()
    }
@@ -200,7 +212,6 @@ Page({
       
       
     // }
-    
   },
   // 跳转视频号
   gotoLiving(e) {

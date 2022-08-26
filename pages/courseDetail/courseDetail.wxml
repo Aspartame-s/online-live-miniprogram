@@ -51,7 +51,7 @@
           shortDec="{{item.lessonShortDesc}}"
           isShowTeacher="false"
           lessonViewCount="{{item.lessonViewCount}}"
-          videoUrl="{{videoUrl}}"
+          videoUrl="{{item.lessonContentUrl}}"
           subFlag="{{item.subFlag}}"
           ></liveListH>
          </view>

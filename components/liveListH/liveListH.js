@@ -72,7 +72,7 @@ Component({
       console.log(this.properties.obj);
       const obj = this.properties.obj
       // if(obj) {
-        if(obj.lessonElapsedTime < 0) {
+        if(obj.lessonElapsedTime <= 0) {
           wx.showModal({
             title: '课程还未开始',
             content: '请稍后观看',

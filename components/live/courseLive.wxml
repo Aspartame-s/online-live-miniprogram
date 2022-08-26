@@ -13,7 +13,7 @@
             liveList="{{liveList}}" 
             imgUrl="{{item.lessonCoverUrl}}" 
             lessonName="{{item.courseName}}" 
-            shortDec="{{item.lessonShortDesc}}"
+            shortDec="{{item.lessonName}}"
             teacherImg="{{item.teacherAvatarUrl}}"
             teacherName="{{item.teacherName}}"
             lessonViewCount="{{item.lessonViewCount}}"
@@ -33,13 +33,14 @@
       liveList="{{liveList}}"
       imgUrl="{{item.lessonCoverUrl}}" 
       lessonName="{{item.courseName}}" 
-      shortDec="{{item.lessonShortDesc}}"
+      shortDec="{{item.lessonName}}"
       teacherImg="{{item.teacherAvatarUrl}}"
       teacherName="{{item.teacherName}}"
       isShowTeacher="{{true}}" 
       lessonElapsedTime="{{item.lessonElapsedTime}}"
       isHuifangHead="{{!isvideo}}"
       times="{{times[index]}}"
+      obj="{{item}}"
       ></liveListW>
     </block>
     <!-- <view class="emptyCourse"> -->

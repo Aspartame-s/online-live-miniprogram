@@ -53,7 +53,7 @@
     <!-- 直播回放列表 -->
     <view class="livingList" wx:if="{{isShow}}">
       <view wx:if="{{!livingHistoryNull}}" wx:for="{{livingHistory}}" wx:key="{{item.courseId}}" class="live">
-        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}" class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
+        <button open-type="getPhoneNumber" data-obj="{{item}}" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}" class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
         <liveListW id="zizujian" bindtap="intoHistory" data-obj="{{item}}" data-url="{{item.liveVideoIntroductionVideoUrl}}" data-courseId="{{item.courseId}}" data-lessonid="{{item.lessonId}}" subflag="{{item.subFlag}}" courseId="{{item.courseId}}" lessonId="{{item.lessonId}}" liveId="{{item.id}}" isHuifangHead="{{true}}" isVideo="{{true}}" videoUrl="{{item.liveVideoContentUrl}}" imgUrl="{{item.liveVideoCoverUrl}}" lessonName="{{item.liveVideoName}}" shortDec="{{item.liveVideoShortDesc}}" teacherImg="{{item.teacherAvatarUrl}}" teacherName="{{item.teacherName}}" lessonElapsedTime="{{item.liveVideoElapsedTime}}" obj="{{item}}"></liveListW>
       </view>
       <block wx:if="{{livingHistoryNull && !isShow}}">

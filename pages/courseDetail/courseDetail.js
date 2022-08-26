@@ -131,12 +131,13 @@ Page({
     // 判断当前是否是视频号跳转的页面的数据
     const abc = e.currentTarget.dataset
     console.log('课程详情判断',abc);
-    if (abc.time < 0) {
+    if (abc.time <= 0) {
     //   wx.showModal({
     //     title: '课程还未开始',
     //     content: '请稍后观看',
     //     showCancel: false
     //   })
+    return
     } else {
       // 添加记录
       let data1 = {

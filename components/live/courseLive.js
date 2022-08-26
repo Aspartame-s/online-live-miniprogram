@@ -130,7 +130,8 @@ Component({
           console.log('获取用户手机号', rrr)
           wx.setStorageSync('phone', rrr.data);
           this.setData({
-            hasPhone: true
+            hasPhone: true,
+            // reqObj: 
           })
           console.log('已设置button隐藏')
           // this.onLoad();
@@ -143,13 +144,14 @@ Component({
       console.log('start')
       console.log(e.currentTarget);
       const data = e.currentTarget.dataset
-      if (data.time < 0) {
-        console.log('还未开始')
-        wx.showModal({
-          title: '课程还未开始',
-          content: '请稍后观看',
-          showCancel: false
-        })
+      if (data.time <= 0) {
+        // console.log('还未开始')
+        // wx.showModal({
+        //   title: '课程还未开始',
+        //   content: '请稍后观看',
+        //   showCancel: false
+        // })
+        return
       } else {
         // 添加一次直播 
         let msg = {
@@ -157,10 +159,12 @@ Component({
           "lessonId": e.currentTarget.dataset.obj.id
         }
         console.log('/userwatch', msg);
-        addUserwatch('/userwatch', msg).then(res => {
-          console.log('添加一次直播记录', res);
-        })
+        // addUserwatch('/userwatch', msg).then(res => {
+        //   console.log('添加一次直播记录', res);
+        // })
         if (data.obj.hasOwnProperty('lessonContentUrl')) {
+          var header = this.selectComponent("#zizujian")
+          header.bofang()
           console.log('播放视频')
           //播放视频
           this.setData({
@@ -172,15 +176,15 @@ Component({
           this.setData({
             isvideo: false,
           })
-          wx.openChannelsLive({
-            finderUserName: 'sphfYruhmZYLxXt',
-            success: res => {
-              console.log('成功打开', res);
-            },
-            fail: res => {
-              console.log('打开失败', res);
-            }
-          })
+          // wx.openChannelsLive({
+          //   finderUserName: 'sphfYruhmZYLxXt',
+          //   success: res => {
+          //     console.log('成功打开', res);
+          //   },
+          //   fail: res => {
+          //     console.log('打开失败', res);
+          //   }
+          // })
           console.log('已跳转视频号')
         }
       }
