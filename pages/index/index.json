@@ -4,6 +4,7 @@
     "courseLive":"../../components/live/courseLive",
     "liveListW":"/components/liveListW/liveListW",
     "Empty":"/components/empty/empty",
-    "Loading":"/components/Loading/Loading"
+    "Loading":"/components/Loading/Loading",
+    "listRow": "/components/listRow/index"
   }
 }

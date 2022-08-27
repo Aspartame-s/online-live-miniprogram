@@ -1,8 +1,8 @@
 // index.js
 const app = getApp()
 import * as watch from "../../utils/watch";
-const { getBanner, getLiving, getlivingHistory, userLogin, addUserwatch,userPhone } = require('../../utils/http/api')
-import { getDay } from '../../utils/getDate'
+const { getBanner, getLiving, getlivingHistory, userLogin, addUserwatch,userPhone, getTodayLive } = require('../../utils/http/api')
+import { getDay, getCurrentDate } from '../../utils/getDate'
 Page({
   data: {
     imgbaseUrl: app.globalData.imgbaseUrl,
@@ -29,7 +29,8 @@ Page({
     feedId:'',
     // 是否有手机号
     hasPhone:false,
-    currentDay: null
+    currentDay: null,
+    listData: [], //根据日期获取的今日直播数据
   },
   onLoad() {
     wx.setStorageSync('phone', '');
@@ -112,14 +113,20 @@ Page({
     isShow: function (newVal, oldVal) {
     }
   },
+  //根据日期获取直播数据
+  getTodayLive(date) {
+    getTodayLive('lesson/by-date/' + date).then(res => {
+      this.setData({
+        listData: res.data
+      })
+      // console.log(res)
+    })
+  },
   mydata(e) {
     //可获取日历点击事件
-    console.log(e)
-    let data = e.detail.data
-    this.setData({
-      clickDate: data
-    })
-    console.log(this.data.clickDate)
+    let date = e.detail.data
+    this.getTodayLive(date)
+    // console.log(this.data.clickDate)
   },
   // 查看更多
   getMoreClick() {
@@ -162,7 +169,11 @@ Page({
     //   console.log('添加一次直播', res);
     // })
   },
+  // clickListRow(e) {
+  //   if()
+  // },
   onShow() {
+    this.getTodayLive(getCurrentDate()) //每次进到首页都会获取今天的直播数据，如果页面缓存 会造成日期和数据不匹配的情况
     // 设置当前在哪个页面
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {

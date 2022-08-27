@@ -9,8 +9,9 @@
   <image src='{{imgbaseUrl}}/icon/shortlink1.png' class="link link-2"></image>
   <!-- 每日直播 -->
   <view class="today-live">
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}" class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
-    <courseLive clickDate="{{clickDate}}"></courseLive>
+  <listRow wx:for="{{listData}}" wx:key="{{item.id}}" wx:if="{{listData.length == 1}}" listdata="{{item}}" title="{{item.courseName}}" desc="{{item.lessonName}}" data-list="{{item}}" bindtap="clickListRow"></listRow>
+    <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}" class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
+    <courseLive clickDate="{{clickDate}}"></courseLive> -->
   </view>
   <!-- bannner -->
   <view wx:if="{{bannerurl.length == 0}}" class="bannerImg emptyBanner">

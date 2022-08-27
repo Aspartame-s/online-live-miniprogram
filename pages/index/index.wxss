@@ -60,7 +60,7 @@
   width: 694rpx;
   /* height: 522rpx; */
   overflow: hidden;
-  padding: 62rpx 24rpx 32rpx 24rpx;
+  padding: 62rpx 24rpx 42rpx 24rpx;
   background: #FFFFFF;
   border-radius: 8px 8px 8px 8px;
   opacity: 1;

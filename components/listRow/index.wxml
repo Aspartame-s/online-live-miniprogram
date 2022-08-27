@@ -1,0 +1,26 @@
+<!--components/liveListW/liveListW.wxml-->
+<view class="list-row-container">
+  <view class="container-left" bindtap="click">
+    <view class="start-time">
+      {{startTime}}
+    </view>
+    <view class="video-container">
+      <image src="{{listdata.lessonCoverUrl}}" class="bg-img"></image>
+      <video src="{{listdata.lessonContentUrl}}" show-center-play-btn="{{false}}" id="myVideo" bindfullscreenchange="screenchange"></video>
+      <image src="{{imgbaseUrl}}/course/bofang.png" class="bofangImg"></image>
+    </view>
+  </view>
+  <view class="container-right">
+    <view class="top">{{title}}</view>
+    <view class="middle">{{desc}}</view>
+    <view class="bottom">
+      <view class="teacher-info">
+        <image src="{{listdata.teacherAvatarUrl}}" class="teacher-icon"></image>
+        <span class="teacher-name">{{listdata.teacherName}}</span>
+      </view>
+      <view class="live-time">已播{{listdata.lessonElapsedTime}}分钟</view>
+    </view>
+  </view>
+  <button open-type="getPhoneNumber" wx:if="{{phoneModel}}" bindgetphonenumber="getPhoneNumber" class="getPhoneBtn"></button>
+</view>
+<!-- <view class="quesheng" wx:if="{{!title}}"></view> -->
