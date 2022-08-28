@@ -5,6 +5,7 @@
     "liveListW":"/components/liveListW/liveListW",
     "Empty":"/components/empty/empty",
     "Loading":"/components/Loading/Loading",
-    "listRow": "/components/listRow/index"
+    "listRow": "/components/listRow/index",
+    "listCol": "/components/listColumn/index"
   }
 }

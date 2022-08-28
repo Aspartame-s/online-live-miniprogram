@@ -38,8 +38,7 @@ Component({
   observers: {
     'listdata'(data) {
       this.setData({
-        startTime: data.lessonStartAt.substring(11, 16),
-        ldata: data
+        startTime: data.lessonStartAt.substring(11, 16)
       })
       console.log('aaaaaaa', data) // 这样就可以取到异步的值
     }
@@ -50,8 +49,7 @@ Component({
   data: {
     startTime: '',
     imgbaseUrl: app.globalData.imgbaseUrl,
-    phoneModel: null,
-    ldata: {}
+    phoneModel: null
   },
 
   /**

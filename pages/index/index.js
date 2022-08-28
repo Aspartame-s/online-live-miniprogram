@@ -1,8 +1,19 @@
 // index.js
 const app = getApp()
 import * as watch from "../../utils/watch";
-const { getBanner, getLiving, getlivingHistory, userLogin, addUserwatch,userPhone, getTodayLive } = require('../../utils/http/api')
-import { getDay, getCurrentDate } from '../../utils/getDate'
+const {
+  getBanner,
+  getLiving,
+  getlivingHistory,
+  userLogin,
+  addUserwatch,
+  userPhone,
+  getTodayLive
+} = require('../../utils/http/api')
+import {
+  getDay,
+  getCurrentDate
+} from '../../utils/getDate'
 Page({
   data: {
     imgbaseUrl: app.globalData.imgbaseUrl,
@@ -26,11 +37,85 @@ Page({
     // 直播回放是否为空
     livingHistoryNull: false,
     // 视频号feedId
-    feedId:'',
+    feedId: '',
     // 是否有手机号
-    hasPhone:false,
+    hasPhone: false,
     currentDay: null,
     listData: [], //根据日期获取的今日直播数据
+    fakeList: [
+      {
+      courseCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c-1.jpg",
+      courseId: "1561604909797867520",
+      courseName: "硬笔书法第一篇章：学习准备",
+      createdAt: "2022-08-22 15:08:31",
+      id: "1561608678732333057",
+      lessonCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c1-l3.jpg",
+      lessonElapsedTime: "0",
+      lessonEndAt: "2022-08-30 20:00:00",
+      lessonLastMinutes: "60",
+      lessonName: "汉字书写",
+      lessonShortDesc: "书写体验",
+      lessonStartAt: "2022-08-30 19:00:00",
+      lessonStartDate: "2022-08-30",
+      lessonType: "1",
+      lessonTypeName: "直播",
+      lessonViewCount: "1",
+      subFlag: "1",
+      teacherAvatarUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl-avatar.jpg",
+      teacherId: "1560558854822035456",
+      teacherIntroductionImgUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl.jpg",
+      teacherName: "刘有林",
+      updatedAt: "2022-08-22 15:08:31",
+    },
+    {
+      courseCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c-1.jpg",
+      courseId: "1561604909797867520",
+      courseName: "硬笔书法第一篇章：学习准备",
+      createdAt: "2022-08-22 15:08:31",
+      id: "1561608678732333057",
+      lessonCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c1-l3.jpg",
+      lessonElapsedTime: "0",
+      lessonEndAt: "2022-08-30 20:00:00",
+      lessonLastMinutes: "60",
+      lessonName: "汉字书写",
+      lessonShortDesc: "书写体验",
+      lessonStartAt: "2022-08-30 19:00:00",
+      lessonStartDate: "2022-08-30",
+      lessonType: "1",
+      lessonTypeName: "直播",
+      lessonViewCount: "1",
+      subFlag: "1",
+      teacherAvatarUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl-avatar.jpg",
+      teacherId: "1560558854822035456",
+      teacherIntroductionImgUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl.jpg",
+      teacherName: "刘有林3",
+      updatedAt: "2022-08-22 15:08:31",
+    },
+    {
+      courseCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c-1.jpg",
+      courseId: "1561604909797867520",
+      courseName: "硬笔书法第一篇章：学习准备",
+      createdAt: "2022-08-22 15:08:31",
+      id: "1561608678732333057",
+      lessonCoverUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/course/lyl-c1-l3.jpg",
+      lessonElapsedTime: "0",
+      lessonEndAt: "2022-08-30 20:00:00",
+      lessonLastMinutes: "60",
+      lessonName: "汉字书写",
+      lessonShortDesc: "书写体验",
+      lessonStartAt: "2022-08-30 19:00:00",
+      lessonStartDate: "2022-08-30",
+      lessonType: "1",
+      lessonTypeName: "直播",
+      lessonViewCount: "1",
+      subFlag: "1",
+      teacherAvatarUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl-avatar.jpg",
+      teacherId: "1560558854822035456",
+      teacherIntroductionImgUrl: "https://sezb-1301658904.cos.ap-nanjing.myqcloud.com/teacher/lyl.jpg",
+      teacherName: "刘有林3",
+      updatedAt: "2022-08-22 15:08:31",
+    },
+   ]
   },
   onLoad() {
     wx.setStorageSync('phone', '');
@@ -41,8 +126,8 @@ Page({
         userLogin('wx/user/login?code=' + res.code).then(res => {
           console.log('登录后端返回', res);
           wx.setStorageSync('sessionId', res.data.sessionId)
-          wx.setStorageSync('sessionKey',res.data.session.sessionKey)
-          wx.setStorageSync('openid',res.data.session.openid)
+          wx.setStorageSync('sessionKey', res.data.session.sessionKey)
+          wx.setStorageSync('openid', res.data.session.openid)
           wx.setStorageSync('jwt', res.data.jwt)
           // 昵称
           wx.setStorageSync('nickName', res.data.wxAuthUser.nickName)
@@ -56,7 +141,7 @@ Page({
             console.log('现在有手机号，button应该不显示')
             wx.setStorageSync('phone', res.data.wxAuthUser.phone);
             this.setData({
-              hasPhone:true
+              hasPhone: true
             })
           }
         })
@@ -66,12 +151,12 @@ Page({
     watch.setWatcher(this);
     // 获取首页banner图
     getBanner('banner?pageNo=0&pageSize=1&location=index').then(res => {
-      console.log('banner图', res);
-      this.setData({
-        bannerurl: res.data,
-        bannerLink: res.data
-      })
-    }),
+        console.log('banner图', res);
+        this.setData({
+          bannerurl: res.data,
+          bannerLink: res.data
+        })
+      }),
       // 获取正在直播列表
       getLiving('live-video/page?pageNo=0&pageSize=1').then(res => {
         console.log('直播列表', res);
@@ -110,8 +195,7 @@ Page({
   // 监听
   watch: {
     // 监听当前点击的是直播还是直播回放
-    isShow: function (newVal, oldVal) {
-    }
+    isShow: function (newVal, oldVal) {}
   },
   //根据日期获取直播数据
   getTodayLive(date) {
@@ -178,40 +262,40 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 0    // 根据tab的索引值设置
+        selected: 0 // 根据tab的索引值设置
       })
     }
   },
   async getPhoneNumber(e) {
     // console.log(e)
     // console.log(e.currentTarget.dataset.obj)
-   if(!e.detail.cloudID) {
-    // this.setData({
-    //   reqObj: e.currentTarget.dataset.obj
-    // })
-    // var header = this.selectComponent("#zizujian")
-    // header.bofang()
-     return
-   }else {
-    const encryptedData = encodeURIComponent(e.detail.encryptedData)
-    const iv = encodeURIComponent(e.detail.iv)
-    // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
-    const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
-    const openid = encodeURIComponent(wx.getStorageSync('openid'))
-    await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
-      console.log('获取用户手机号',rrr)
-      wx.setStorageSync('phone', rrr.data);
-      this.setData({
-        hasPhone: true,
-        reqObj: e.currentTarget.dataset.obj
+    if (!e.detail.cloudID) {
+      // this.setData({
+      //   reqObj: e.currentTarget.dataset.obj
+      // })
+      // var header = this.selectComponent("#zizujian")
+      // header.bofang()
+      return
+    } else {
+      const encryptedData = encodeURIComponent(e.detail.encryptedData)
+      const iv = encodeURIComponent(e.detail.iv)
+      // const sessionId = encodeURIComponent(wx.getStorageSync('sessionId'))
+      const sessionKey = encodeURIComponent(wx.getStorageSync('sessionKey'))
+      const openid = encodeURIComponent(wx.getStorageSync('openid'))
+      await userPhone(`wx/user/phone?sessionKey=${sessionKey}&encryptedData=${encryptedData}&iv=${iv}&openid=${openid}`).then(rrr => {
+        console.log('获取用户手机号', rrr)
+        wx.setStorageSync('phone', rrr.data);
+        this.setData({
+          hasPhone: true,
+          reqObj: e.currentTarget.dataset.obj
+        })
+        console.log('已设置button隐藏')
+        // this.onLoad();
       })
-      console.log('已设置button隐藏')
-      // this.onLoad();
-    })
-    // debugger
-    var header = this.selectComponent("#zizujian")
-    header.bofang()
-   }
+      // debugger
+      var header = this.selectComponent("#zizujian")
+      header.bofang()
+    }
     // console.log(wx.getStorageSync('phone') == '');
     // if(wx.getStorageSync('phone')) {
     //   console.log('现在有手机号，button应该不显示2')
@@ -220,8 +304,8 @@ Page({
     //   })
     //   // return
     // }else {
-      
-      
+
+
     // }
   },
   // 跳转视频号
@@ -229,17 +313,17 @@ Page({
     // 没有获取到用户手机号
     console.log(wx.getStorageSync('phone'));
     // if (!this.data.hasPhone) {
-      
+
     // }
-    console.log('添加一条观看记录',e.currentTarget);
+    console.log('添加一条观看记录', e.currentTarget);
     let data2 = {
       "courseId": e.currentTarget.dataset.courseid,
       "lessonId": e.currentTarget.dataset.lessonid,
-      "liveId":e.currentTarget.dataset.liveid,
+      "liveId": e.currentTarget.dataset.liveid,
     }
     wx.openChannelsLive({
       finderUserName: 'sphfYruhmZYLxXt',
-      success:res=>{
+      success: res => {
         // console.log('成功打开',res);
         console.log('我草泥马')
         // addUserwatch('userwatch', data2).then(res => {
@@ -247,8 +331,8 @@ Page({
         //   console.log('添加次数成功')
         // })
       },
-      fail:res=>{
-        console.log('打开失败',res);
+      fail: res => {
+        console.log('打开失败', res);
       }
     })
   }

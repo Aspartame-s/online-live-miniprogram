@@ -9,7 +9,8 @@
   <image src='{{imgbaseUrl}}/icon/shortlink1.png' class="link link-2"></image>
   <!-- 每日直播 -->
   <view class="today-live">
-  <listRow wx:for="{{listData}}" wx:key="{{item.id}}" wx:if="{{listData.length == 1}}" listdata="{{item}}" title="{{item.courseName}}" desc="{{item.lessonName}}" data-list="{{item}}" bindtap="clickListRow"></listRow>
+  <!-- <listRow wx:for="{{listData}}" wx:key="{{item.id}}" wx:if="{{listData.length == 1}}" listdata="{{item}}" title="{{item.courseName}}" desc="{{item.lessonName}}" data-list="{{item}}" bindtap="clickListRow"></listRow> -->
+  <listCol wx:for="{{fakeList}}" wx:key="{{item.id}}" listdata="{{item}}" title="{{item.courseName}}" desc="{{item.lessonName}}"></listCol>
     <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden="{{hasPhone}}" class="getPhoneBtn {{hasphone ? 'noshow' : ''}}"></button>
     <courseLive clickDate="{{clickDate}}"></courseLive> -->
   </view>

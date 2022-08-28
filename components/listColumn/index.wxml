@@ -1,0 +1,43 @@
+<!--components/liveListW/liveListW.wxml-->
+<view class="list-col-container">
+  <view class="container-top" >
+    <view class="start-time">
+      <!-- {{startTime}} -->
+      19:00
+    </view>
+    <view class="video-container">
+      <image src="{{listdata.lessonCoverUrl}}" class="bg-img"></image>
+      <video src="{{listdata.lessonContentUrl}}" show-center-play-btn="{{false}}" id="myVideo" bindfullscreenchange="screenchange"></video>
+      <image src="{{imgbaseUrl}}/course/bofang.png" class="bofangImg"></image>
+    </view>
+  </view>
+  <view class="container-bottom">
+    <view class="top">
+    <!-- {{title}} -->
+    第一课时：坐姿、执笔、
+学习方法控笔横线……
+    </view>
+    <view class="middle">
+    <!-- {{desc}} -->
+    第一课时：坐姿、执笔、
+学习方法控笔横线……第一课时：坐姿、执笔、
+学习方法控笔横线……
+    </view>
+    <view class="bottom">
+      <view class="teacher-info">
+        <image src="{{listdata.teacherAvatarUrl}}" class="teacher-icon"></image>
+        <span class="teacher-name">
+          {{listdata.teacherName}}
+          刘友林
+        </span>
+      </view>
+      <view class="live-time">
+        <!-- <image src="../../static/icon/chakangengduo.png" class="view-icon"></image> -->
+        <van-icon name="eye-o" id="eye" class="van-icon" />
+        45
+      </view>
+    </view>
+  </view>
+  <!-- <button open-type="getPhoneNumber" wx:if="{{phoneModel}}" bindgetphonenumber="getPhoneNumber" class="getPhoneBtn"></button> -->
+</view>
+<!-- <view class="quesheng" wx:if="{{!title}}"></view> -->
